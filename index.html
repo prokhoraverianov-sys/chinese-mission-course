@@ -38,11 +38,11 @@ article,article section{scroll-margin-top:130px}summary{color:var(--accent);font
 <div class="video-copy">
 <p><strong>Лекция Лили Хао о четырёх тонах</strong> <span class="muted">· ChineseFor.Us · на английском</span></p>
 <div class="lecture-actions">
+<button type="button" id="lecture-youtube" aria-controls="tone-video" aria-pressed="false">Смотреть лекцию здесь</button>
 <button type="button" id="lecture-vimeo" aria-controls="tone-video" aria-pressed="false">Плеер автора</button>
-<button type="button" id="lecture-youtube" aria-controls="tone-video" aria-pressed="false">YouTube</button>
 <button type="button" id="lecture-audio" aria-controls="lecture-backup" aria-expanded="false">Аудио и русский разбор</button>
 </div>
-<p id="lecture-status" class="muted" role="status">Выбери плеер, чтобы открыть видео здесь.</p>
+<p id="lecture-status" class="muted" role="status">Нажми «Смотреть лекцию здесь», затем кнопку воспроизведения внутри видео.</p>
 <p><a href="https://www.youtube.com/watch?v=ZsA4rJ8Lmcc" target="_blank" rel="noopener">Открыть лекцию на YouTube ↗</a></p>
 <p>На каждом тоне ставь видео на паузу, повторяй пример дважды и записывай, где начинается и заканчивается движение голоса. После просмотра сверни конспект и нарисуй четыре контура по памяти.</p>
 <label for="d1-video-notes">Заметки во время просмотра</label><textarea id="d1-video-notes" placeholder="Например, на 3-м тоне мне трудно услышать…"></textarea>
@@ -67,7 +67,7 @@ article,article section{scroll-margin-top:130px}summary{color:var(--accent);font
 <p>В разделе Pinyin and tones выбери первый плеер с рядом <em>ma</em>. Первый проход проведи молча и нарисуй четыре контура. Во втором останавливай запись после слога и повторяй его. Затем запиши два ряда по карточкам ниже. После записи найди в университетском примере один слог с тем же тоном и сравни начало и конец звука.</p>
 <div class="drill"><p><strong>Карточки для двух дублей.</strong> A: 4–1–3–2. B: 2–4–1–3. Для каждого ряда произноси только слог <em>ma</em>, меняя тон. Пометь знаком вопроса слоги, где на своей записи не различаешь направление голоса.</p></div>
 <p><a href="https://www.open.edu/openlearn/mod/oucontent/view.php?id=106437&amp;section=3" target="_blank" rel="noopener">Open University · Pinyin and tones</a> · <a href="https://www.open.edu/openlearn/languages/beginners-chinese?trackno=2" target="_blank" rel="noopener">Резервный университетский плеер · Track 2</a></p>
-<iframe loading="lazy" src="https://player.open.ac.uk/embed/01f1a2348a" title="Open University · Фонетика и тоны"></iframe>
+<button type="button" data-inline-media>Слушать здесь · Open University · Фонетика и тоны</button><iframe hidden data-src="https://player.open.ac.uk/embed/01f1a2348a" title="Open University · Фонетика и тоны" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 <ul class="tone-chart" aria-label="Схематические контуры четырёх тонов">
 <li><svg viewBox="0 0 80 44" aria-hidden="true"><path d="M 12 11 H 68"/></svg><strong>1 · mā</strong><br>Высокий ровный</li>
 <li><svg viewBox="0 0 80 44" aria-hidden="true"><path d="M 12 31 Q 41 28 68 9"/></svg><strong>2 · má</strong><br>Восходящий</li>
@@ -142,7 +142,7 @@ article,article section{scroll-margin-top:130px}summary{color:var(--accent);font
 <section><div class="time">107–120 · ПРОВЕРКА</div><h3>Новый диалог целиком</h3>
 <p>Открой Track 4 только сейчас. Прослушай без транскрипта до двух раз. Запиши, что собеседники делают, в какой части спрашивают имя и сколько человек его назвали. Попробуй записать имена так, как услышал. Затем вслух ответь на тот же вопрос своим именем и верни его собеседнику.</p>
 <p><a href="https://www.open.edu/openlearn/languages/beginners-chinese?trackno=4" target="_blank" rel="noopener">OU · Track 4, Greetings and names</a></p>
-<iframe loading="lazy" src="https://player.open.ac.uk/embed/2ce6696f44" title="Open University · Диалог знакомства"></iframe>
+<button type="button" data-inline-media>Слушать здесь · Open University · Диалог знакомства</button><iframe hidden data-src="https://player.open.ac.uk/embed/2ce6696f44" title="Open University · Диалог знакомства" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 <form class="check" id="listening-check" data-check>
 <p><strong>После двух прослушиваний.</strong> Сначала запиши свободный ответ ниже. Затем проверь детали диалога здесь.</p>
 <label>Когда впервые спросили имя? <select name="order" required data-answer="after" data-correct="Вопрос звучит после обмена приветствиями." data-hint="Отдели первые короткие реплики от более длинного вопроса."><option value="">Выбери момент</option><option value="before">До приветствия</option><option value="after">После приветствий</option><option value="end">После того, как оба представились</option></select></label>
@@ -164,7 +164,7 @@ article,article section{scroll-margin-top:130px}summary{color:var(--accent);font
 <p>Это ряд 0–10. Короткие коды ниже произносим отдельными цифрами. Например, 408 — это четыре, ноль, восемь. При реальной диктовке единицы также можно услышать <em>yāo</em>. Сегодня образец для собственной речи — <em>yī</em>.</p>
 <details><summary>Теория · почему 074 читается по цифрам</summary><p>В номере каждый знак важен. Ноль в начале обозначает отдельную позицию, а два одинаковых знака подряд произносятся дважды. В обычном счёте 10 — <em>shí</em>, а код «10» состоит из двух позиций и читается <em>yī líng</em>. При обратном подтверждении сначала воспроизведи весь услышанный код, затем сравни его с исходным по позициям.</p><p>Проверь себя. Как прозвучит количество «десять»? Как прозвучат коды «010» и «077»?</p><details><summary>Ключ</summary><p><em>shí</em> · <em>líng yī líng</em> · <em>líng qī qī</em>.</p></details></details>
 <p><a href="https://www.open.edu/openlearn/languages/beginners-chinese?trackno=3" target="_blank" rel="noopener">OU · Track 3, Numbers from zero to ten</a></p></section>
-<iframe loading="lazy" src="https://player.open.ac.uk/embed/e7d91043b2" title="Open University · Числа от нуля до десяти"></iframe>
+<button type="button" data-inline-media>Слушать здесь · Open University · Числа от нуля до десяти</button><iframe hidden data-src="https://player.open.ac.uk/embed/e7d91043b2" title="Open University · Числа от нуля до десяти" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 <section><div class="time">29–45 · АУДИРОВАНИЕ И ПАМЯТЬ</div><h3>Проверь, где слышишь цифру, а где угадываешь ряд</h3>
 <p>В Track 3 выдели на слух и повтори 0, 4, 6, 7 и 10. Сначала сверь цифры по ряду. Затем запиши на диктофон шесть отдельных фрагментов, по одному числу в каждом: 0, 1, 4, 7, 9, 10. Используй оригинальную запись как образец, а в своём файле произнеси только число. Назови файлы буквами в случайном порядке, запиши ключ на бумаге и убери его. Оставь их для повторения после основной проверки или попроси другого человека переставить файлы.</p>
 <div class="drill"><p><strong>Разбор двух пар.</strong> На <em>yī/qī</em> слушай, начинается ли слог сразу с гласной или перед ней слышен согласный. Для <em>sì/shí</em> сравни и начало слога, и движение голоса. После каждой пары закрой таблицу, произнеси 1–7–7–1 или 4–10–10–4 и проверь запись по исходному образцу.</p></div>
@@ -196,7 +196,7 @@ article,article section{scroll-margin-top:130px}summary{color:var(--accent);font
 <p>Открой Track 15, в нём три заказа. Слушай без PDF. Первый проход — отметь число заказов и где слышно <em>wǒ yào</em>. Второй — для каждого заказа выпиши только услышанные количества по порядку. Третий — попробуй распознать пиво, рис или другие знакомые слова. Остановись между репликами и запиши неизвестный кусок приблизительно на слух. Затем сравни с официальной расшифровкой. Новые названия блюд можешь оставить в пассивном словаре.</p>
 <div class="drill"><p><strong>После первого прохода.</strong> Во втором и третьем заказах встретится <span lang="zh-Hans">点</span> <em>diǎn</em>, «заказывать». Отметь место, после которого начинается список. Сделай для каждой реплики черновую строку «кто заказывает | сколько | что». В колонке «что» достаточно записать один узнаваемый предмет и оставить остальные места пустыми.</p></div>
 <p><a href="https://www.open.edu/openlearn/languages/beginners-chinese?trackno=15" target="_blank" rel="noopener">OU · Track 15, Placing orders</a> · <a href="https://media-podcast.open.ac.uk/feeds/l197-beginners-chinese/transcript/l197_tk15_00575_6802.pdf" target="_blank" rel="noopener">Транскрипт после попытки</a></p>
-<iframe loading="lazy" src="https://player.open.ac.uk/embed/30c84c6704" title="Open University · Три заказа"></iframe>
+<button type="button" data-inline-media>Слушать здесь · Open University · Три заказа</button><iframe hidden data-src="https://player.open.ac.uk/embed/30c84c6704" title="Open University · Три заказа" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 <label for="d3-listen">Три заказа, количества и услышанные слова</label><textarea id="d3-listen"></textarea></section>
 <section><div class="time">45–55 · ПЕРЕРЫВ</div><h3>Отложи экран</h3></section>
 <section><div class="time">55–74 · ГОВОРЕНИЕ</div><h3>Заказ меняется во время разговора</h3>
@@ -212,7 +212,7 @@ article,article section{scroll-margin-top:130px}summary{color:var(--accent);font
 <p>Сохрани первую попытку и возвращайся к ключу после записи. Дополнение первого урока можно перенести на следующий день. Для уроков 2 и 3 оно занимает оставшуюся часть двухчасового слота.</p>
 <details data-extra="day1"><summary>Урок 1 · Университетский диалог с новыми голосами</summary>
 <p>Это более сложный диалог от Michigan State University. На первом проходе слушай, не открывая текст. Отметь, узнаёшь ли оба приветствия. На втором проходе посчитай, сколько раз слышишь <em>jiào</em>, и попробуй поймать короткое <em>nǐ ne?</em>. Новые слова оставляй за скобками.</p>
-<div class="video-lesson"><iframe src="https://www.youtube-nocookie.com/embed/hhC_hwP_BvE?playsinline=1&amp;rel=0" title="Michigan State University · Диалог при знакомстве" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+<div class="video-lesson"><button type="button" data-inline-media>Смотреть диалог здесь</button><iframe hidden data-src="https://www.youtube.com/embed/hhC_hwP_BvE?playsinline=1&amp;rel=0" title="Michigan State University · Диалог при знакомстве" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
 <p><a href="https://www.youtube.com/watch?v=hhC_hwP_BvE" target="_blank" rel="noopener">Открыть диалог на YouTube ↗</a> · <a href="https://openbooks.lib.msu.edu/chs101/chapter/chapter-1/" target="_blank" rel="noopener">Аудио и оригинальный текст главы ↗</a></p>
 <label for="d1-transfer">Что услышал на двух проходах?</label><textarea id="d1-transfer"></textarea>
 <details><summary>Ключ к дополнительному диалогу</summary><p>В первой реплике звучит <em>nín hǎo</em>, во второй — <em>nǐ hǎo</em>. <em>Jiào</em> встречается трижды: в вопросе и в двух ответах. <em>Nǐ ne?</em> возвращает вопрос собеседнице. Отдельный глагол <em>xìng</em> относится к фамилии. Если расслышал <em>xìng</em> вместо <em>jiào</em>, переслушай третью и четвёртую реплики и сравни начальный звук.</p></details>
@@ -273,10 +273,11 @@ function setupLecture() {
     player.pause();
     status.textContent = file
       ? 'HTML открыт как файл. Выбери плеер автора или аудиоразбор.'
-      : 'Выбери плеер, чтобы открыть видео здесь.';
+      : 'Нажми «Смотреть лекцию здесь», затем кнопку воспроизведения внутри видео.';
   }
 
   function showVideo(button, url, message) {
+    stopInlineMedia();
     reset();
     video.src = url;
     video.hidden = false;
@@ -285,6 +286,7 @@ function setupLecture() {
   }
 
   function showAudio() {
+    stopInlineMedia();
     reset();
     backup.hidden = false;
     audio.setAttribute('aria-expanded', 'true');
@@ -510,6 +512,7 @@ function setupBlocks(day) {
 const dayBlocks = new Map(days.map(day => [day.id, setupBlocks(day)]));
 
 function showStage(index, moveFocus = false) {
+  stopInlineMedia();
   stage = Math.min(Math.max(index, 0), blocks.length - 1);
   const guided = activeDay.id === 'day1' && guidedMode.checked;
   if (guided && stage !== 0) pauseLecture();
@@ -531,6 +534,7 @@ function showStage(index, moveFocus = false) {
 }
 
 function selectDay() {
+  stopInlineMedia();
   const id = days.some(day => '#' + day.id === location.hash) ? location.hash.slice(1) : 'day1';
   if (activeDay?.id === 'day1' && id !== 'day1') pauseRecorder();
   if (activeDay?.id === 'day1' && id !== 'day1') pauseLecture();
@@ -590,7 +594,7 @@ guidedMode.addEventListener('change', () => {
 window.setInterval(() => {
   if (startedAt === null) return;
   showClock();
-}, 500);
+}, 1000);
 window.addEventListener('pagehide', pauseClock);
 
 theme.value = read('theme') === 'dark' ? 'dark' : 'light';
@@ -606,6 +610,30 @@ for (const field of fields) {
 }
 
 for (const form of document.querySelectorAll('[data-check]')) setupCheck(form);
+function setupInlineMedia() {
+  const buttons = [...document.querySelectorAll('[data-inline-media]')];
+  function stop() {
+    for (const button of buttons) {
+      const frame = button.nextElementSibling;
+      frame.removeAttribute('src');
+      frame.hidden = true;
+      button.hidden = false;
+    }
+  }
+  for (const button of buttons) {
+    button.addEventListener('click', () => {
+      stop();
+      pauseLecture();
+      const frame = button.nextElementSibling;
+      frame.src = frame.dataset.src;
+      frame.hidden = false;
+      button.hidden = true;
+    });
+  }
+  window.addEventListener('pagehide', stop);
+  return stop;
+}
+const stopInlineMedia = setupInlineMedia();
 const pauseRecorder = setupRecorder();
 const pauseLecture = setupLecture();
 
