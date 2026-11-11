@@ -1,7 +1,3 @@
 # Chinese Mission
 
-**[Открыть курс и начать первое занятие](https://chinese-mission-study.prokhoraverianov.chatgpt.site/first-three-lessons.html#day1)**
-
-Курс открывается в браузере. При запросе доступа войди в ChatGPT под аккаунтом владельца. Ответы, отметки и таймер сохраняются в том же профиле браузера.
-
-Файл `index.html` содержит исходник первых трёх занятий.
+12 interactive Mandarin lessons. Open index.html through a static web host. Lesson 2 is the starting point for this course. Progress is stored in the browser. first-three-lessons.html contains the previous lessons.

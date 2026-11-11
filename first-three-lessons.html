@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chinese Mission · Первые три занятия</title>
+<style>
+:root{color-scheme:light;--paper:#f4efe6;--card:#fffbf4;--ink:#26241f;--muted:#625a4f;--line:#d7ccbb;--accent:#8b3429}
+:root[data-theme=dark]{color-scheme:dark;--paper:#171d23;--card:#232c35;--ink:#f7ede1;--muted:#c0cbd2;--line:#53616c;--accent:#ffc4a8}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 system-ui,sans-serif}main{max-width:920px;margin:auto;padding:24px 18px 64px}header,section,aside{padding:clamp(17px,4vw,32px);margin:16px 0;background:var(--card);border:1px solid var(--line);border-radius:14px}h1,h2,h3{font-family:Georgia,serif;line-height:1.16}h1{font-size:clamp(2rem,6vw,3.5rem);margin:.25em 0}h2{font-size:clamp(1.6rem,4vw,2.5rem)}h3{margin-top:0}.top,nav{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}nav{justify-content:flex-start}a{color:var(--accent)}button,select,nav a{font:inherit;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 12px}nav a[aria-current]{border-color:var(--accent);font-weight:bold}label{display:block}textarea{width:100%;min-height:110px;background:var(--paper);color:var(--ink);font:inherit;border:1px solid var(--line);border-radius:8px;padding:10px}iframe{width:100%;height:120px;border:1px solid var(--line);border-radius:8px}summary,button{cursor:pointer}small,.muted{color:var(--muted)}table{width:100%;border-collapse:collapse}td,th{padding:6px;text-align:left;border-bottom:1px solid var(--line)}[lang=zh-Hans]{font-family:"Microsoft YaHei","Noto Sans CJK SC",sans-serif}.time{font:700 .8rem system-ui;color:var(--accent)}:focus-visible{outline:2px solid var(--accent);outline-offset:3px}[hidden]{display:none!important}
+.lesson-tools{position:sticky;top:0;z-index:2;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lesson-tools select{flex:1;min-width:min(100%,15rem);max-width:100%}.lesson-tools output{font-variant-numeric:tabular-nums}
+article,article section{scroll-margin-top:130px}summary{color:var(--accent);font-weight:650}textarea{display:block;resize:vertical;margin:.4rem 0 1rem}
+.work-label{display:flex;align-items:center;gap:9px;margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--line)}.work-label input{width:20px;height:20px;accent-color:var(--accent)}#storage-status:empty{display:none}
+.drill{border-left:3px solid var(--accent);padding-left:14px}.drill p:last-child{margin-bottom:0}
+.video-lesson{margin:1em 0;overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:12px}.video-copy{padding:14px 16px}.video-copy p{margin:.35em 0}.video-copy details{margin-top:12px}.video-lesson iframe{display:block;width:100%;height:auto;min-height:200px;aspect-ratio:16/9;border:0;border-radius:0;background:#161616}.video-copy button{min-height:44px;margin-top:10px}.video-copy .muted{font-size:.88em}.video-copy textarea{min-height:76px}
+.check{padding:16px;background:var(--paper);border:1px solid var(--line);border-radius:10px;margin:16px 0}.check label{margin:.7rem 0}.check input,.check select{display:block;width:min(100%,28rem);padding:.55rem;margin-top:.3rem;font:inherit;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:6px}.check button,.recorder button{min-height:44px}.feedback{margin:.7rem 0}.feedback li{margin:.45rem 0}
+.tone-items{display:flex;flex-wrap:wrap;gap:8px 12px}.tone-items label{flex:0 0 50px}.tone-items input{text-align:center}
+.tone-chart{display:grid;grid-template-columns:repeat(auto-fit,minmax(108px,1fr));gap:8px;padding:0;list-style:none}.tone-chart li{padding:8px;border:1px solid var(--line);border-radius:8px}.tone-chart svg{display:block;width:100%;height:44px;stroke:var(--accent);fill:none;stroke-width:3;stroke-linecap:round}
+.recorder audio{display:block;width:min(100%,390px);margin:10px 0}.recorder a{display:inline-block;margin-top:.45rem}
+#guided-option{display:flex;align-items:center;gap:6px}.stage-prev,.stage-next{margin:12px 8px 0 0;min-height:44px}.lecture-actions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}.lecture-actions button{min-height:44px}.lecture-actions button[aria-pressed=true]{border-color:var(--accent);font-weight:700}.lecture-audio{display:block;width:100%}
+@media(max-width:520px){body{font-size:16px}main{padding:12px 12px 44px}table td{padding:5px;overflow-wrap:anywhere}.lesson-tools{font-size:14px}article,article section{scroll-margin-top:155px}}
+</style><main>
+<header>
+<div class="top"><strong>CHINESE MISSION · 01–03</strong><label>Тема <select id="theme"><option value="light">Бумага</option><option value="dark">Тёмная</option></select></label></div>
+<p><a href="./index.html">Продолжить месячный курс без печати →</a> · Прежние ответы и записи остаются на этой странице.</p>
+<h1>Первый разговор</h1><p>Путунхуа с нуля. Первый урок рассчитан на двухчасовой слот, включая перерыв. Для второго и третьего уроков есть основная часть и дополнительная практика. Подготовь наушники и диктофон. Для видео и аудио нужен интернет.</p>
+<nav aria-label="Уроки"><a href="#day1">1 · Знакомство</a><a href="#day2">2 · Числа и коды</a><a href="#day3">3 · Заказ</a></nav>
+<p class="muted">Записывай устные ответы на диктофон. Включи отсчёт перед работой и поставь на паузу на перерыве. Черновики, отметки и время сохраняются в этом браузере, если доступно локальное хранилище.</p><p id="storage-status" role="status"></p>
+</header>
+<div class="lesson-tools" id="lesson-tools" hidden>
+<label for="lesson-step">Блок урока</label><select id="lesson-step"></select>
+<label id="guided-option"><input id="guided-mode" type="checkbox"> По одному блоку</label>
+<button id="lesson-clock" type="button">Начать отсчёт</button><output id="lesson-time" aria-label="Активное время">00:00</output>
+<small id="lesson-progress" aria-live="polite"></small>
+</div>
+<article id="day1">
+<h2>01. Поздороваться и назвать себя</h2><p>К концу занятия ты попробуешь различить приветствие и прощание на слух, назвать себя, спросить имя и прочитать короткий обмен сообщениями.</p>
+<section><div class="time">00–18 · ВИДЕОЛЕКЦИЯ</div><h3>Как тон меняет слово</h3>
+<div class="video-lesson">
+<iframe id="tone-video" title="Лили Хао показывает четыре тона путунхуа" hidden referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+<div class="video-copy">
+<p><strong>Лекция Лили Хао о четырёх тонах</strong> <span class="muted">· ChineseFor.Us · на английском</span></p>
+<div class="lecture-actions">
+<button type="button" id="lecture-youtube" aria-controls="tone-video" aria-pressed="false">Смотреть лекцию здесь</button>
+<button type="button" id="lecture-vimeo" aria-controls="tone-video" aria-pressed="false">Плеер автора</button>
+<button type="button" id="lecture-audio" aria-controls="lecture-backup" aria-expanded="false">Аудио и русский разбор</button>
+</div>
+<p id="lecture-status" class="muted" role="status">Нажми «Смотреть лекцию здесь», затем кнопку воспроизведения внутри видео.</p>
+<p><a href="https://www.youtube.com/watch?v=ZsA4rJ8Lmcc" target="_blank" rel="noopener">Открыть лекцию на YouTube ↗</a></p>
+<p>На каждом тоне ставь видео на паузу, повторяй пример дважды и записывай, где начинается и заканчивается движение голоса. После просмотра сверни конспект и нарисуй четыре контура по памяти.</p>
+<label for="d1-video-notes">Заметки во время просмотра</label><textarea id="d1-video-notes" placeholder="Например, на 3-м тоне мне трудно услышать…"></textarea>
+<div id="lecture-backup" hidden>
+<p><strong>Аудиоразбор в уроке.</strong> Сначала прочитай четыре пункта русской теории под карточкой. Затем слушай запись Джулиана Уитли из MIT. Остановись, когда услышишь прощание <em>zàijiàn</em>. Проговори оба слога. Сравни первое и второе падение тона, затем ответь на вопросы после теории.</p>
+<audio class="lecture-audio" controls preload="none" aria-label="Примеры тоновых сочетаний MIT" src="https://ocw.mit.edu/courses/res-21g-003-learning-chinese-a-foundation-course-in-mandarin-spring-2011/567f476588fe2e3735d78a8477be03dd_1.10.1.mp3"></audio>
+<p><a href="https://ocw.mit.edu/courses/res-21g-003-learning-chinese-a-foundation-course-in-mandarin-spring-2011/resources/1-10-1/" target="_blank" rel="noopener">Источник записи MIT OpenCourseWare</a></p>
+</div>
+</div></div>
+<details><summary>Теория по-русски</summary>
+<ol><li><strong>Одна фраза в трёх формах.</strong> <span lang="zh-Hans">你好</span> — китайская запись, <em>nǐ hǎo</em> — пиньинь, «привет» — перевод. Пиньинь помогает восстановить произношение. Смысл фразы понимаем по словам и ситуации.</li>
+<li><strong>Как устроен слог.</strong> В <em>mǎ</em> начальный согласный <em>m</em>, финаль <em>a</em>, знак над <em>a</em> показывает третий тон. В <em>mā</em> звуки остаются теми же, меняется движение голоса. <span lang="zh-Hans">妈</span> <em>mā</em> — «мама», <span lang="zh-Hans">马</span> <em>mǎ</em> — «лошадь». Эти иероглифы сегодня запоминать не требуется.</li>
+<li><strong>Куда движется высота.</strong> Первый тон держится высоко и ровно, второй поднимается, третий в отдельном слоге уходит вниз и может подняться, четвёртый резко падает. Высоту выбирай относительно своего голоса. В нейтральном слоге, например втором слоге <em>shénme</em>, держи произношение коротким и лёгким.</li>
+<li><strong>Отдельный слог и реплика.</strong> В пиньине пишем <em>nǐ hǎo</em>, а в приветствии обычно слышим подъём на первом слоге. Это изменение первого из двух третьих тонов. Для первого дня важно услышать разницу между отдельным <em>nǐ</em> и целой фразой.</li></ol>
+<p><a href="https://chinesefor.us/lessons/mandarin-chinese-tones-lesson-practice/" target="_blank" rel="noopener">Материалы видеолекции</a> · <a href="https://openbooks.lib.msu.edu/chs101/chapter/tones/" target="_blank" rel="noopener">Michigan State University · Tones</a> · <a href="https://www.open.edu/openlearn/mod/oucontent/view.php?id=106437&amp;section=4" target="_blank" rel="noopener">Open University · Tone changes</a></p>
+</details>
+<p>Ответь своими словами. 1. Чем отличаются <em>mā</em> и <em>mǎ</em>? 2. Как различить второй и четвёртый тон по направлению? 3. Как в речи меняется первый слог <em>nǐ hǎo</em>?</p>
+<label for="d1-lecture">Три ответа после лекции</label><textarea id="d1-lecture"></textarea>
+<details><summary>Сверить понимание</summary><p>1. Звуки <em>m</em> и <em>a</em> те же, тон и значение разные. 2. Второй поднимается, четвёртый падает. 3. Первый слог звучит со вторым тоном, написание <em>nǐ hǎo</em> сохраняется.</p></details></section>
+<section><div class="time">18–29 · СЛУХ И ФОНЕТИКА</div><h3>Четыре движения голоса</h3>
+<p>Пиньинь передаёт произношение. Над гласной ставится знак тона. 1-й — высокий ровный, 2-й — восходящий, 3-й в изоляции — низкий с возможным подъёмом, 4-й — резко нисходящий. В связной речи третий тон часто остаётся низким. У нейтрального тона нет знака и своего постоянного контура.</p>
+<p>В разделе Pinyin and tones выбери первый плеер с рядом <em>ma</em>. Первый проход проведи молча и нарисуй четыре контура. Во втором останавливай запись после слога и повторяй его. Затем запиши два ряда по карточкам ниже. После записи найди в университетском примере один слог с тем же тоном и сравни начало и конец звука.</p>
+<div class="drill"><p><strong>Карточки для двух дублей.</strong> A: 4–1–3–2. B: 2–4–1–3. Для каждого ряда произноси только слог <em>ma</em>, меняя тон. Пометь знаком вопроса слоги, где на своей записи не различаешь направление голоса.</p></div>
+<p><a href="https://www.open.edu/openlearn/mod/oucontent/view.php?id=106437&amp;section=3" target="_blank" rel="noopener">Open University · Pinyin and tones</a> · <a href="https://www.open.edu/openlearn/languages/beginners-chinese?trackno=2" target="_blank" rel="noopener">Резервный университетский плеер · Track 2</a></p>
+<button type="button" data-inline-media>Слушать здесь · Open University · Фонетика и тоны</button><iframe hidden data-src="https://player.open.ac.uk/embed/01f1a2348a" title="Open University · Фонетика и тоны" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<ul class="tone-chart" aria-label="Схематические контуры четырёх тонов">
+<li><svg viewBox="0 0 80 44" aria-hidden="true"><path d="M 12 11 H 68"/></svg><strong>1 · mā</strong><br>Высокий ровный</li>
+<li><svg viewBox="0 0 80 44" aria-hidden="true"><path d="M 12 31 Q 41 28 68 9"/></svg><strong>2 · má</strong><br>Восходящий</li>
+<li><svg viewBox="0 0 80 44" aria-hidden="true"><path d="M 12 22 Q 36 56 68 14"/></svg><strong>3 · mǎ</strong><br>Низкий, здесь с подъёмом</li>
+<li><svg viewBox="0 0 80 44" aria-hidden="true"><path d="M 12 8 L 68 36"/></svg><strong>4 · mà</strong><br>Нисходящий</li>
+</ul>
+<form class="check" id="tone-check" data-check>
+<p><strong>Вспомни обозначения.</strong> Введи три цифры подряд в порядке <em>mà · má · mǎ</em>. Это проверка чтения пиньиня. Слуховую попытку сделаешь на записи ниже по уроку.</p>
+<label>Номера тонов <input name="tones" inputmode="numeric" pattern="[1-4]{3}" required autocomplete="off" data-answer="423" data-correct="Верно: падение, подъём, третий тон." data-hint="Сверь наклон знака над a: вниз, вверх, затем знак с углом."></label>
+<button>Проверить ответ</button><div class="feedback" aria-live="polite"></div>
+</form>
+<label for="d1-tones">Пара тонов, которую трудно различить</label><textarea id="d1-tones"></textarea></section>
+<section><div class="time">29–44 · ТЕОРИЯ И РАЗБОР ФРАЗ</div><h3>Как построить ответ и вопрос об имени</h3>
+<table><tbody>
+<tr><td lang="zh-Hans">你好</td><td>nǐ hǎo</td><td>Привет / здравствуйте. В речи слышится примерно <em>ní hǎo</em>: первый из двух третьих тонов меняется.</td></tr>
+<tr><td lang="zh-Hans">您好</td><td>nín hǎo</td><td>Более почтительное приветствие. Полезно при формальном знакомстве.</td></tr>
+<tr><td lang="zh-Hans">再见</td><td>zàijiàn</td><td>До свидания.</td></tr>
+<tr><td lang="zh-Hans">我叫…</td><td>wǒ jiào…</td><td>Меня зовут… Подставь своё имя в привычной форме.</td></tr>
+<tr><td lang="zh-Hans">你叫什么？</td><td>Nǐ jiào shénme?</td><td>Как тебя зовут? Вопросительное слово занимает место имени.</td></tr>
+<tr><td lang="zh-Hans">你呢？</td><td>Nǐ ne?</td><td>А тебя? Смысл восстанавливается из предыдущей реплики.</td></tr>
+</tbody></table>
+<p>В <em>Greetings</em> прослушай Audio 3–5. В <em>Introducing oneself</em> используй Audio 10–11, остановись перед Activity 7. Запиши вопрос и два ответа с разными именами. Сверь, слышно ли на записи падение в <em>jiào</em> и где ты делаешь паузу.</p>
+<p>В <em>wǒ jiào + имя</em> ты сообщаешь, как тебя зовут. В <em>nǐ jiào shénme?</em> меняется подлежащее и вместо имени появляется «что». Русский перевод перестраивает порядок слов. В китайской фразе вопросительное слово остаётся после <em>jiào</em>. Короткое <em>nǐ ne?</em> удобно, когда тема вопроса уже ясна.</p>
+<div class="drill"><p>Собери из <em>shénme / jiào / nǐ</em> вопрос. Из <em>jiào / wǒ / Ānnà</em> собери ответ. Затем Анна возвращает вопрос в двух слогах. Произнеси три реплики по очереди.</p></div>
+<label for="d1-grammar">Вопрос, ответ и встречный вопрос</label><textarea id="d1-grammar"></textarea>
+<details><summary>Ключ к разбору фраз</summary><p><em>Nǐ jiào shénme? Wǒ jiào Ānnà. Nǐ ne?</em> Встречный вопрос понятен, потому что собеседники уже говорят об именах.</p></details>
+<form class="check" id="grammar-check" data-check>
+<p><strong>Две новые реплики.</strong> Печатай пиньинем с тонами или без, либо иероглифами. Пробелы и знаки препинания можно опустить.</p>
+<label>«Как тебя зовут?» <input name="question" required autocomplete="off" data-answer="ni jiao shenme|ni jiao shenme mingzi|你叫什么|你叫什么名字" data-correct="Вопросительное слово стоит после jiào." data-hint="Начни с «ты», затем «зваться», затем «что»."></label>
+<label>«А тебя?» после ответа об имени <input name="return" required autocomplete="off" data-answer="ni ne|你呢" data-correct="Верно: nǐ ne возвращает предыдущий вопрос." data-hint="Возьми «ты» и короткую частицу ne."></label>
+<button>Проверить ответ</button><div class="feedback" aria-live="polite"></div>
+</form>
+<p><a href="https://www.open.edu/openlearn/languages/beginners-chinese-taster-course/content-section-4" target="_blank" rel="noopener">OU · Greetings</a> · <a href="https://www.open.edu/openlearn/languages/beginners-chinese-taster-course/content-section-5" target="_blank" rel="noopener">OU · Introducing oneself</a></p>
+</section>
+<section><div class="time">44–55 · АУДИРОВАНИЕ</div><h3>Распознать намерение, потом звук</h3>
+<p>На странице Tone changes открой Activity 2. Сверни расшифровку и убери с экрана варианты ответа. Поставь запись на паузу после каждой из пяти реплик и запиши предполагаемое действие по-русски. Для 1, 3 и 4 отдельно запиши номера тонов, которые услышал. На втором проходе поправь ответы и только затем проверь транскрипт. Повтори вслух две реплики, где ошибся.</p>
+<p>В репликах 2 и 5 могут встретиться незнакомые слова. Сначала оставь прочерк, затем разбери их с транскриптом. В 1 и 3 контуры тонов похожи. Попробуй услышать конечное <em>n</em> у первого слога в более почтительном приветствии. Запиши, на какой признак опирался.</p>
+<p><a href="https://www.open.edu/openlearn/mod/oucontent/view.php?id=106437&amp;section=4#activity2" target="_blank" rel="noopener">OU · Tone changes, Activity 2</a></p>
+<label for="d1-listen">Реплики 1–5 и номера тонов</label><textarea id="d1-listen"></textarea></section>
+<section><div class="time">55–70 · ЛАБОРАТОРИЯ СЛУХА</div><h3>Различить подъём и низкий тон на незнакомых словах</h3>
+<p>В упражнении Джулиана Уитли из MIT OpenCourseWare каждое слово состоит из двух слогов. Твоя задача — классифицировать только <strong>последний</strong>: второй тон (подъём) или третий (низкий). Значение слов для этого задания не нужно.</p>
+<audio controls preload="none" aria-label="Упражнение MIT на второй и третий тоны" src="https://ocw.mit.edu/courses/res-21g-003-learning-chinese-a-foundation-course-in-mandarin-spring-2011/326e89324f6fe34724c17bfddd86523b_1.10_ex3c.mp3"></audio>
+<p><a href="https://ocw.mit.edu/courses/res-21g-003-learning-chinese-a-foundation-course-in-mandarin-spring-2011/resources/1-10-ex3c/" target="_blank" rel="noopener">Запись и сведения об источнике ↗</a> · <a href="https://ocw.mit.edu/courses/res-21g-003-learning-chinese-a-foundation-course-in-mandarin-spring-2011/e997e90bb0ac79ea7d75c3d2f5fcf8b7_MITRES_21G_003S11_unit01.pdf#page=23" target="_blank" rel="noopener">Учебник, упражнение 3c ↗</a></p>
+<ol><li>Слушай с начала. Останавливай после каждого из первых пяти примеров. Запиши 2 или 3. Если не уверен, всё равно выбери и отдельно поставь знак вопроса в черновике.</li><li>Перед проверкой переслушай только два самых сомнительных примера. Отметь, изменился ли ответ и почему.</li><li>После проверки открой разбор. Повтори по одному примеру каждого тона и сравни последнюю часть своего дубля с записью.</li></ol>
+<form class="check" id="tone-listening-check" data-check>
+<p>В каждой ячейке введи 2 или 3. Номер над ячейкой соответствует порядку примера в записи.</p>
+<div class="tone-items">
+<label>№ 1 <input aria-label="Тон примера 1" name="word1" inputmode="numeric" pattern="[23]" maxlength="1" required autocomplete="off" data-answer="3" data-correct="1. Совпало." data-hint="1. Переслушай конец первого слова."></label>
+<label>№ 2 <input aria-label="Тон примера 2" name="word2" inputmode="numeric" pattern="[23]" maxlength="1" required autocomplete="off" data-answer="2" data-correct="2. Совпало." data-hint="2. Сравни конец второго слова с первым."></label>
+<label>№ 3 <input aria-label="Тон примера 3" name="word3" inputmode="numeric" pattern="[23]" maxlength="1" required autocomplete="off" data-answer="2" data-correct="3. Совпало." data-hint="3. Слушай высоту последней гласной."></label>
+<label>№ 4 <input aria-label="Тон примера 4" name="word4" inputmode="numeric" pattern="[23]" maxlength="1" required autocomplete="off" data-answer="3" data-correct="4. Совпало." data-hint="4. Сравни четвёртый пример со вторым."></label>
+<label>№ 5 <input aria-label="Тон примера 5" name="word5" inputmode="numeric" pattern="[23]" maxlength="1" required autocomplete="off" data-answer="3" data-correct="5. Совпало." data-hint="5. Сравни последний слог с концом четвёртого примера."></label>
+</div><button>Сверить последовательность</button><div class="feedback" aria-live="polite"></div>
+</form>
+<details><summary>Разбор после попытки</summary><p>Первые пять последних слогов: <em>yǒng, cái, nián, mǐ, yǔ</em>. Ответ по позициям: 3, 2, 2, 3, 3. Если спутал 2 и 3, сравни пример 2 с примером 4. Слушай изменение высоты внутри последнего слога.</p></details>
+<label for="d1-tone-contrast">Какие позиции изменил при втором прослушивании?</label><textarea id="d1-tone-contrast"></textarea></section>
+<section><div class="time">70–80 · ПЕРЕРЫВ</div><h3>Отложи экран</h3></section>
+<section><div class="time">80–98 · ГОВОРЕНИЕ</div><h3>Три смены ситуации</h3>
+<ol><li>Встретил нового знакомого. Поздоровайся, назови себя, спроси имя. Запиши один дубль с таблицей и один с закрытой таблицей.</li><li>Теперь человек первым спрашивает твоё имя. Включи Audio 11, поставь паузу, ответь и верни вопрос короткой репликой. Сделай два дубля с разными именами.</li><li>Первое знакомство на рабочей встрече. Выбери более почтительное приветствие, назови себя. Затем представь, что разговор закончился, и попрощайся. Запиши этот дубль без таблицы.</li></ol>
+<p>Прослушай первый и последний дубль. Отметь по одному конкретному различию и переделай только одну реплику, где слышишь расхождение с университетским образцом.</p>
+<div class="drill"><p><strong>Последний дубль без пиньиня.</strong> Выбери одно условие. A — на рабочей встрече первым назови себя, затем спроси имя собеседника. B — на языковой встрече собеседник спросил имя первым, ответь и верни вопрос. C — вы уже представились и заканчиваете разговор. Произнеси только те реплики, которые нужны в выбранной ситуации, затем сделай другой вариант.</p></div>
+<div class="recorder" id="lesson-recorder" hidden>
+<p><strong>Диктофон в уроке.</strong> Разреши доступ к микрофону, запиши дубль и прослушай его. Запись остаётся в этой вкладке. Если хочешь сохранить её, скачай файл до закрытия страницы.</p>
+<button type="button" id="record-start">Записать дубль</button> <button type="button" id="record-stop" disabled>Остановить</button>
+<div id="record-status" role="status"></div><audio id="record-play" controls hidden></audio><a id="record-download" hidden>Скачать запись</a>
+</div>
+<label for="d1-speaking">Какая реплика потребовала переделки и почему?</label><textarea id="d1-speaking"></textarea></section>
+<section><div class="time">98–107 · ЧТЕНИЕ И ВВОД</div><h3>Первое сообщение</h3>
+<p lang="zh-Hans">A：你好！　B：你好，我叫安娜。　A：再见！</p>
+<p>Отметь реплику с именем и напиши, где начинается и заканчивается разговор. Набери ответ «Здравствуйте, меня зовут Анна» по-китайски через пиньинь-клавиатуру, если она уже настроена. Можно собрать его из знакомых фрагментов вручную.</p>
+<label for="d1-read">Разбор и ответ в чат</label><textarea id="d1-read"></textarea></section>
+<section><div class="time">107–120 · ПРОВЕРКА</div><h3>Новый диалог целиком</h3>
+<p>Открой Track 4 только сейчас. Прослушай без транскрипта до двух раз. Запиши, что собеседники делают, в какой части спрашивают имя и сколько человек его назвали. Попробуй записать имена так, как услышал. Затем вслух ответь на тот же вопрос своим именем и верни его собеседнику.</p>
+<p><a href="https://www.open.edu/openlearn/languages/beginners-chinese?trackno=4" target="_blank" rel="noopener">OU · Track 4, Greetings and names</a></p>
+<button type="button" data-inline-media>Слушать здесь · Open University · Диалог знакомства</button><iframe hidden data-src="https://player.open.ac.uk/embed/2ce6696f44" title="Open University · Диалог знакомства" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<form class="check" id="listening-check" data-check>
+<p><strong>После двух прослушиваний.</strong> Сначала запиши свободный ответ ниже. Затем проверь детали диалога здесь.</p>
+<label>Когда впервые спросили имя? <select name="order" required data-answer="after" data-correct="Вопрос звучит после обмена приветствиями." data-hint="Отдели первые короткие реплики от более длинного вопроса."><option value="">Выбери момент</option><option value="before">До приветствия</option><option value="after">После приветствий</option><option value="end">После того, как оба представились</option></select></label>
+<label>Сколько собеседников назвали своё имя? <input name="people" inputmode="numeric" required pattern="[0-9]" autocomplete="off" data-answer="2" data-correct="Оба назвали своё имя." data-hint="Посчитай, сколько раз начинается ответ с wǒ jiào."></label>
+<label>Что сделала собеседница сразу после того, как назвала себя? <select name="intent" required data-answer="returned" data-correct="Она вернула вопрос собеседнику." data-hint="Прислушайся к короткой реплике после её имени."><option value="">Выбери действие</option><option value="returned">Вернула вопрос</option><option value="left">Попрощалась</option><option value="repeat">Повторила имя</option></select></label>
+<button>Сверить детали</button><div class="feedback" aria-live="polite"></div>
+</form>
+<label for="d1-exit">Первая попытка и отметка об устном дубле</label><textarea id="d1-exit" class="exit"></textarea>
+<p>После сверки отметь отдельно: понял ситуацию, услышал вопрос, понял, что представились двое. Для устной попытки отметь, прозвучали ли имя и встречный вопрос. Если пропустил один элемент, повтори тот же обмен с другим именем.</p>
+<p>Запиши в поле выше фактическое активное время и отдельно результат: аудирование 0–3 по трём пунктам, устная реакция 0–2 по двум функциям. Добавь одну фразу, которую нужно повторить в начале следующего занятия. Если запись не воспроизвелась, укажи это вместо оценки аудирования.</p>
+<details><summary>Ключ и разбор</summary><p>В Activity 2 идут обычное приветствие, благодарность, почтительное приветствие, прощание и ответ на благодарность. Тоны нужных реплик: 1 — 2/3, 3 — 2/3, 4 — 4/4. В чате имя в реплике B. Возможный ответ: <span lang="zh-Hans">您好，我叫安娜。</span></p><p>В Track 4 двое знакомятся. После двух приветствий звучит вопрос, затем представляются оба. Имена Lǐ Xiǎoyīng и Wáng Jīng. На первом занятии приблизительная запись имени достаточна. В устной части ищи две функции: назвать себя и вернуть вопрос.</p></details></section>
+</article>
+<article id="day2">
+<h2>02. Услышать и передать короткий код</h2><p>Цель — услышать отдельные цифры от нуля до десяти, продиктовать короткий код и отличить точную передачу числа от приблизительной.</p>
+<section><div class="time">00–12 · ВОЗВРАТ К УРОКУ 1</div><h3>Первые реплики без разогрева</h3><p>Закрой материал первого урока. Сделай три коротких записи: рабочее приветствие и имя, вопрос об имени знакомого, прощание. Открой ключ первого урока и сравни. Перезапиши слабую реплику. Отметь, что вспомнилось только после подсказки.</p><label for="d2-recall">Что пришлось восстановить?</label><textarea id="d2-recall"></textarea></section>
+<section><div class="time">12–29 · СЛУШАТЬ И РАЗОБРАТЬ</div><h3>Считать и диктовать</h3>
+<p>Открой Track 3. Первый раз слушай, ведя пальцем по ряду. Второй раз останавливай после каждой цифры и повторяй. При третьем проходе обращай внимание на пары <em>yī / qī</em> и <em>sì / shí</em>. В них различаются звуки, а во второй паре ещё и тон.</p>
+<p lang="zh-Hans">零 一 二 三 四 五 六 七 八 九 十</p><p>líng · yī · èr · sān · sì · wǔ · liù · qī · bā · jiǔ · shí</p>
+<p>Это ряд 0–10. Короткие коды ниже произносим отдельными цифрами. Например, 408 — это четыре, ноль, восемь. При реальной диктовке единицы также можно услышать <em>yāo</em>. Сегодня образец для собственной речи — <em>yī</em>.</p>
+<details><summary>Теория · почему 074 читается по цифрам</summary><p>В номере каждый знак важен. Ноль в начале обозначает отдельную позицию, а два одинаковых знака подряд произносятся дважды. В обычном счёте 10 — <em>shí</em>, а код «10» состоит из двух позиций и читается <em>yī líng</em>. При обратном подтверждении сначала воспроизведи весь услышанный код, затем сравни его с исходным по позициям.</p><p>Проверь себя. Как прозвучит количество «десять»? Как прозвучат коды «010» и «077»?</p><details><summary>Ключ</summary><p><em>shí</em> · <em>líng yī líng</em> · <em>líng qī qī</em>.</p></details></details>
+<p><a href="https://www.open.edu/openlearn/languages/beginners-chinese?trackno=3" target="_blank" rel="noopener">OU · Track 3, Numbers from zero to ten</a></p></section>
+<button type="button" data-inline-media>Слушать здесь · Open University · Числа от нуля до десяти</button><iframe hidden data-src="https://player.open.ac.uk/embed/e7d91043b2" title="Open University · Числа от нуля до десяти" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<section><div class="time">29–45 · АУДИРОВАНИЕ И ПАМЯТЬ</div><h3>Проверь, где слышишь цифру, а где угадываешь ряд</h3>
+<p>В Track 3 выдели на слух и повтори 0, 4, 6, 7 и 10. Сначала сверь цифры по ряду. Затем запиши на диктофон шесть отдельных фрагментов, по одному числу в каждом: 0, 1, 4, 7, 9, 10. Используй оригинальную запись как образец, а в своём файле произнеси только число. Назови файлы буквами в случайном порядке, запиши ключ на бумаге и убери его. Оставь их для повторения после основной проверки или попроси другого человека переставить файлы.</p>
+<div class="drill"><p><strong>Разбор двух пар.</strong> На <em>yī/qī</em> слушай, начинается ли слог сразу с гласной или перед ней слышен согласный. Для <em>sì/shí</em> сравни и начало слога, и движение голоса. После каждой пары закрой таблицу, произнеси 1–7–7–1 или 4–10–10–4 и проверь запись по исходному образцу.</p></div>
+<label for="d2-listen">Какие пары путаются и чем они отличаются на слух?</label><textarea id="d2-listen"></textarea></section>
+<section><div class="time">45–55 · ПЕРЕРЫВ</div><h3>Отложи экран</h3></section>
+<section><div class="time">55–74 · ГОВОРЕНИЕ</div><h3>Передать код без потерь</h3>
+<ol><li>Диктуй по одной цифре с паузами: 407, 691, 174, 390. Запиши один дубль с таблицей, один без неё.</li><li>Теперь сыграй обе стороны рабочего звонка. Сначала поздоровайся и назови себя. Продиктуй 704. Во второй роли повтори 740, как будто неверно расслышал. В первой роли ещё раз произнеси 704 медленнее. Перезапиши серию с 619 и ошибочным 691.</li><li>Прослушай свой второй дубль, запиши услышанные цифры. Сравни посимвольно, включая ведущие нули. Для каждого расхождения отметь, потерял ли ты цифру, переставил её или спутал звучание.</li></ol>
+<label for="d2-speaking">Что удалось расшифровать из записи?</label><textarea id="d2-speaking"></textarea></section>
+<section><div class="time">74–82 · ЧТЕНИЕ</div><h3>Сверить номер в чате</h3>
+<p>Переведи в цифры <span lang="zh-Hans">零七四、六九一、四零八</span>. Затем запиши 701 и 960 китайскими знаками по одной цифре. Закрой таблицу перед второй попыткой.</p>
+<label for="d2-read">Три расшифровки и два сообщения</label><textarea id="d2-read"></textarea></section>
+<section><div class="time">82–90 · ПРОВЕРКА</div><h3>Новый код и отложенное прослушивание</h3>
+<p>Включи Audio 23 в Activity 11 Phone numbers. Транскрипт и ответ оставь закрытыми. После первого прохода запиши услышанное, после второго допиши пропуски. Сверь цифры по позициям, включая начальный ноль и повтор в конце. Затем произнеси с листа 0947 и 6170 без таблицы тонов и запиши на диктофон.</p>
+<p><a href="https://www.open.edu/openlearn/languages/beginners-chinese-taster-course/content-section-6" target="_blank" rel="noopener">OU · Activity 11, Audio 23</a></p>
+<label for="d2-exit">Распознанные цифры, результат диктовки, ошибки</label><textarea id="d2-exit" class="exit"></textarea>
+<p>Сохрани первую расшифровку. При исправлении допиши рядом новую версию и выпиши позиции, которые изменились. Для устной части проверь порядок четырёх цифр в каждом дубле и сохранение нуля. Пропущенный ноль потренируй на новых кодах 0714 и 4100.</p>
+<details><summary>Ключ и разбор</summary><p>Чтение: 074, 691, 408. Запись: <span lang="zh-Hans">七零一、九六零</span>. Контрольная диктовка: líng jiǔ sì qī и liù yī qī líng. Audio 23: 021 8549 3677. Посчитай совпавшие позиции из 11. Шесть собственных записей оставь для дополнительного повторения. Ошибки в 4 и 10 возвращают к сравнению <em>sì / shí</em>. Перестановки исправляй через более чёткие паузы и обратное подтверждение.</p></details></section>
+</article>
+<article id="day3">
+<h2>03. Заказать и проверить количество</h2><p>Цель — оформить короткий заказ, распознать намерение и количество в учебной записи, затем изменить заказ по новым условиям.</p>
+<section><div class="time">00–12 · ПОВТОРЕНИЕ</div><h3>Перенести числа из кода в заказ</h3><p>Без таблицы скажи 1, 2, 3, 4 и 10, затем продиктуй 403. Сравни с уроком 2. Вспомни рабочее приветствие из урока 1 и запиши его одним дублем. Отметь различие: в коде отдельно говорили <em>èr</em>, для двух бутылок сегодня используем <em>liǎng</em> перед счётным словом.</p></section>
+<section><div class="time">12–30 · ТЕОРИЯ И УПРАЖНЕНИЕ</div><h3>Количество стоит перед счётным словом</h3>
+<p>Схема заказа: <strong>我要 + число + счётное слово + предмет</strong>. Для бутылок используем 瓶 <em>píng</em>, для чашек 杯 <em>bēi</em>, для порций в данном примере 盘 <em>pán</em>. Один тип посуды на один раунд практики.</p>
+<table><tbody><tr><td lang="zh-Hans">我要</td><td>wǒ yào</td><td>Я хочу / мне, пожалуйста</td></tr><tr><td lang="zh-Hans">一瓶水</td><td>yì píng shuǐ</td><td>Одна бутылка воды</td></tr><tr><td lang="zh-Hans">两杯茶</td><td>liǎng bēi chá</td><td>Две чашки чая</td></tr><tr><td lang="zh-Hans">三瓶啤酒</td><td>sān píng píjiǔ</td><td>Три бутылки пива</td></tr><tr><td lang="zh-Hans">一盘炒饭</td><td>yì pán chǎofàn</td><td>Одна тарелка жареного риса</td></tr></tbody></table>
+<p>Изолированное <em>yī</em> меняет тон в связной речи. Сегодня запомни <em>yì píng</em>, <em>yì bēi</em> и <em>yì pán</em> как готовые сочетания. Составь и произнеси шесть заказов по подсказкам: 1 вода, 3 воды, 2 чая, 1 чай, 3 пива, 2 порции риса. Вслух назови причину выбора счётного слова для каждого.</p>
+<details><summary>Теория · что именно меняется при исправлении заказа</summary><p>В <em>yì píng shuǐ</em> число говорит «сколько», <em>píng</em> задаёт единицу «бутылка», <em>shuǐ</em> называет воду. Если меняется только количество, сохраняй два последних элемента. Если вместо бутылки заказываешь чашку, меняется единица, даже когда число осталось прежним.</p><p>Прочитай вслух «одна бутылка воды», затем сделай две версии. В первой меняется только число на два. Во второй оставь одну позицию, но закажи чашку чая. Объясни, какие части фразы ты поменял.</p><details><summary>Ключ</summary><p><em>Yì píng shuǐ</em> → <em>liǎng píng shuǐ</em> и <em>yì bēi chá</em>.</p></details></details>
+<label for="d3-form">Шесть заказов своими словами</label><textarea id="d3-form"></textarea></section>
+<section><div class="time">30–45 · АУДИРОВАНИЕ</div><h3>Вытащить знакомое из настоящей речи</h3>
+<p>Открой Track 15, в нём три заказа. Слушай без PDF. Первый проход — отметь число заказов и где слышно <em>wǒ yào</em>. Второй — для каждого заказа выпиши только услышанные количества по порядку. Третий — попробуй распознать пиво, рис или другие знакомые слова. Остановись между репликами и запиши неизвестный кусок приблизительно на слух. Затем сравни с официальной расшифровкой. Новые названия блюд можешь оставить в пассивном словаре.</p>
+<div class="drill"><p><strong>После первого прохода.</strong> Во втором и третьем заказах встретится <span lang="zh-Hans">点</span> <em>diǎn</em>, «заказывать». Отметь место, после которого начинается список. Сделай для каждой реплики черновую строку «кто заказывает | сколько | что». В колонке «что» достаточно записать один узнаваемый предмет и оставить остальные места пустыми.</p></div>
+<p><a href="https://www.open.edu/openlearn/languages/beginners-chinese?trackno=15" target="_blank" rel="noopener">OU · Track 15, Placing orders</a> · <a href="https://media-podcast.open.ac.uk/feeds/l197-beginners-chinese/transcript/l197_tk15_00575_6802.pdf" target="_blank" rel="noopener">Транскрипт после попытки</a></p>
+<button type="button" data-inline-media>Слушать здесь · Open University · Три заказа</button><iframe hidden data-src="https://player.open.ac.uk/embed/30c84c6704" title="Open University · Три заказа" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<label for="d3-listen">Три заказа, количества и услышанные слова</label><textarea id="d3-listen"></textarea></section>
+<section><div class="time">45–55 · ПЕРЕРЫВ</div><h3>Отложи экран</h3></section>
+<section><div class="time">55–74 · ГОВОРЕНИЕ</div><h3>Заказ меняется во время разговора</h3>
+<ol><li>Запиши полный заказ из двух позиций: две чашки чая и одна бутылка воды. Поздоровайся в начале.</li><li>Не глядя на первый текст, повтори заказ, изменив чай на три чашки. Вода остаётся в том же количестве. Прослушай два дубля и выпиши только то, что реально произнесено.</li><li>Ситуация с коллегой. Сначала одна тарелка риса для тебя, потом две на двоих. Каждый раз произнеси весь заказ отдельной записью. Можно дать короткий ответ и попрощаться, используя материал первого дня.</li><li>Закрой таблицу. Собери новый заказ из трёх позиций. Сравни его со своим намерением: число, счётное слово, предмет. Переделай одну ошибочную позицию и снова произнеси заказ целиком.</li></ol>
+<label for="d3-speaking">Последний заказ и одно исправление</label><textarea id="d3-speaking"></textarea></section>
+<section><div class="time">74–82 · ЧТЕНИЕ И ВВОД</div><h3>Прочитать и изменить сообщение</h3><p lang="zh-Hans">您好！我要两杯茶、一瓶水。</p><p>Запиши заказ по-русски. Затем набери китайское сообщение с одной чашкой чая и тремя бутылками воды. При вводе пиньинем выбирай подходящие иероглифы из подсказок клавиатуры.</p><label for="d3-read">Перевод и новое сообщение</label><textarea id="d3-read"></textarea></section>
+<section><div class="time">82–90 · ПРОВЕРКА</div><h3>Заказ без опоры</h3><p>Представь, что берёшь еду и напитки для небольшой рабочей встречи. Закрой таблицу. Запиши в одном дубле приветствие, заказ двух бутылок воды и трёх чашек чая. Во втором дубле оставь воду и замени чай одной порцией риса. Сверь каждую позицию с ключом только после обеих записей. Сравни первый вариант аудирования с транскриптом и посчитай отдельно, сколько количеств и сколько продуктов разобрал.</p>
+<label for="d3-exit">Итог двух дублей и разбора аудио</label><textarea id="d3-exit" class="exit"></textarea>
+<p>После сверки отметь, какие ошибки меняют заказ, а какие касаются формы. Неправильное число или напиток меняют заказ. Ошибка счётного слова требует отдельной отработки. Для повторной попытки закажи одну бутылку воды и две порции риса, затем измени только количество воды на три.</p>
+<details><summary>Ключ и разбор</summary><p>Аудио: 3 бутылки пива; по одной порции жареного риса с яйцом и жареной зелени; 10 пельменей, тарелка жареной лапши с говядиной и одна жареная утка. Количества по репликам: 3 / 1, 1 / 10, 1, 1.</p><p lang="zh-Hans">Чат: 您好！我要一杯茶、三瓶水。</p><p lang="zh-Hans">Дубли: 您好！我要两瓶水、三杯茶。　我要两瓶水、一盘炒饭。</p><p>Критерий каждой позиции — точное количество и правильный предмет. Счётное слово отметь отдельно. Если ошибся, подставь ещё одно количество в тот же шаблон и повтори ответ без таблицы.</p></details></section>
+</article>
+<aside><h2>Дополнительная практика</h2>
+<p>Сохрани первую попытку и возвращайся к ключу после записи. Дополнение первого урока можно перенести на следующий день. Для уроков 2 и 3 оно занимает оставшуюся часть двухчасового слота.</p>
+<details data-extra="day1"><summary>Урок 1 · Университетский диалог с новыми голосами</summary>
+<p>Это более сложный диалог от Michigan State University. На первом проходе слушай, не открывая текст. Отметь, узнаёшь ли оба приветствия. На втором проходе посчитай, сколько раз слышишь <em>jiào</em>, и попробуй поймать короткое <em>nǐ ne?</em>. Новые слова оставляй за скобками.</p>
+<div class="video-lesson"><button type="button" data-inline-media>Смотреть диалог здесь</button><iframe hidden data-src="https://www.youtube.com/embed/hhC_hwP_BvE?playsinline=1&amp;rel=0" title="Michigan State University · Диалог при знакомстве" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+<p><a href="https://www.youtube.com/watch?v=hhC_hwP_BvE" target="_blank" rel="noopener">Открыть диалог на YouTube ↗</a> · <a href="https://openbooks.lib.msu.edu/chs101/chapter/chapter-1/" target="_blank" rel="noopener">Аудио и оригинальный текст главы ↗</a></p>
+<label for="d1-transfer">Что услышал на двух проходах?</label><textarea id="d1-transfer"></textarea>
+<details><summary>Ключ к дополнительному диалогу</summary><p>В первой реплике звучит <em>nín hǎo</em>, во второй — <em>nǐ hǎo</em>. <em>Jiào</em> встречается трижды: в вопросе и в двух ответах. <em>Nǐ ne?</em> возвращает вопрос собеседнице. Отдельный глагол <em>xìng</em> относится к фамилии. Если расслышал <em>xìng</em> вместо <em>jiào</em>, переслушай третью и четвёртую реплики и сравни начальный звук.</p></details>
+</details>
+<details data-extra="day2"><summary>Урок 2 · Сверить два номера</summary>
+<ol><li><strong>8 минут.</strong> Через паузу снова запиши Audio 23, разбивая номер на группы. Сравни первую и новую попытки по 11 позициям. Переслушай только те группы, в которых есть расхождения.</li>
+<li><strong>10 минут.</strong> Продиктуй 7401, 0471 и 4410, каждый код в отдельную запись. Между кодами меняй место нуля. Прослушай через несколько минут и запиши, что слышишь, с закрытыми условиями.</li>
+<li><strong>7 минут.</strong> В таблице «исходный код / что услышал / позиция расхождения» найди повторяющуюся ошибку. Затем сделай ещё два дубля с 0174 и 7400. Оба нуля в конце второго кода произносятся отдельно.</li></ol>
+</details>
+<details data-extra="day3"><summary>Урок 3 · Передать заказ коллеге</summary>
+<ol><li><strong>8 минут.</strong> Возьми из Track 15 один заказ, где пропустил больше всего. Прослушай фрагмент без текста, отметь границы между позициями. Сверь с PDF и повтори только опорные фрагменты с количеством.</li>
+<li><strong>10 минут.</strong> Прочитай <span lang="zh-Hans">我要一瓶水、两杯茶。</span> Продиктуй этот заказ, затем поменяй воду на три бутылки и чай на одну чашку. Напечатай исправленный заказ с закрытым образцом.</li>
+<li><strong>7 минут.</strong> Проверь письменный и устный варианты по трём колонкам: число, счётное слово, предмет. Исправленный вариант можно сверить с <span lang="zh-Hans">我要三瓶水、一杯茶。</span> В новом дубле замени чай одной порцией риса, сохрани количество воды.</li></ol>
+</details>
+<h3>Проверка на следующем занятии</h3><p>Повтори без опоры знакомство, новый четырёхзначный код и новый заказ. Сравни три показателя отдельно: что понял из чужой записи, что смог сказать с первой попытки, что смог прочитать. Если блок оказался слишком коротким, укажи его название и фактическое время.</p>
+<details><summary>Учебная основа и следующий шаг</summary>
+<p>Основная линия для старта — Getting started with Chinese 1–3 от The Open University. Она рассчитана на самостоятельную работу и уже содержит объяснения, упражнения и материалы на слух. Для этих трёх дней взяты ранние элементы фонетики и отдельные записи из университетской коллекции L197. Русские объяснения, задания на перенос, диктовка и проверка написаны для этого маршрута. <a href="https://www.open.edu/openlearn/course/view.php?id=15228" target="_blank" rel="noopener">Серия OpenLearn</a> · <a href="https://www.open.edu/openlearn/languages/beginners-chinese" target="_blank" rel="noopener">Коллекция L197</a>.</p>
+<p>MIT Chinese I подходит как дальнейший академический ориентир, особенно по формату устных проверок. Его календарь построен вокруг занятий и работы с преподавателем. Для первых самостоятельных уроков удобнее пользоваться последовательностью OpenLearn, затем проверить, где нужен более полный курс. <a href="https://ocw.mit.edu/courses/21g-101-chinese-i-regular-fall-2014/" target="_blank" rel="noopener">MIT Chinese I</a>.</p>
+<p>Из DeepTutor применён принцип «материал → самостоятельный ответ → журнал ошибки → повторная проверка». Поля сохраняют результаты в браузере. Для последующего подключения DeepTutor стоит дать ему только конкретные исходные разделы и список ошибок, чтобы он подбирал вариации упражнений по пройденному материалу. <a href="https://docs.deeptutor.info/explore/learning/" target="_blank" rel="noopener">DeepTutor · Learning</a>.</p>
+</details></aside></main>
+<script>
+const theme = document.querySelector('#theme');
+const fields = [...document.querySelectorAll('textarea')];
+const days = [...document.querySelectorAll('article')];
+const links = [...document.querySelectorAll('nav a')];
+const prefix = 'chinese-mission-start-v1:';
+const toolbar = document.querySelector('#lesson-tools');
+const steps = document.querySelector('#lesson-step');
+const clock = document.querySelector('#lesson-clock');
+const time = document.querySelector('#lesson-time');
+const progress = document.querySelector('#lesson-progress');
+const guidedOption = document.querySelector('#guided-option');
+const guidedMode = document.querySelector('#guided-mode');
+let activeDay;
+let startedAt = null;
+let elapsed = 0;
+let blocks = [];
+let stage = 0;
+const sessionValues = new Map();
+
+function setupLecture() {
+  const video = document.querySelector('#tone-video');
+  const author = document.querySelector('#lecture-vimeo');
+  const youtube = document.querySelector('#lecture-youtube');
+  const audio = document.querySelector('#lecture-audio');
+  const backup = document.querySelector('#lecture-backup');
+  const player = backup.querySelector('audio');
+  const status = document.querySelector('#lecture-status');
+  const file = location.protocol === 'file:';
+
+  function reset() {
+    video.hidden = true;
+    video.removeAttribute('src');
+    author.setAttribute('aria-pressed', 'false');
+    youtube.setAttribute('aria-pressed', 'false');
+    audio.setAttribute('aria-expanded', 'false');
+    backup.hidden = true;
+    player.pause();
+    status.textContent = file
+      ? 'HTML открыт как файл. Выбери плеер автора или аудиоразбор.'
+      : 'Нажми «Смотреть лекцию здесь», затем кнопку воспроизведения внутри видео.';
+  }
+
+  function showVideo(button, url, message) {
+    stopInlineMedia();
+    reset();
+    video.src = url;
+    video.hidden = false;
+    button.setAttribute('aria-pressed', 'true');
+    status.textContent = message;
+  }
+
+  function showAudio() {
+    stopInlineMedia();
+    reset();
+    backup.hidden = false;
+    audio.setAttribute('aria-expanded', 'true');
+    status.textContent = 'Открыт аудиоразбор. Плеер и задания доступны на этой странице.';
+  }
+
+  author.addEventListener('click', () => showVideo(
+    author, 'https://player.vimeo.com/video/327802609?dnt=1',
+    'Открыт плеер автора. Если он покажет ошибку, выбери аудиоразбор.',
+  ));
+  youtube.addEventListener('click', () => showVideo(
+    youtube, 'https://www.youtube.com/embed/ZsA4rJ8Lmcc?playsinline=1&rel=0',
+    'Открыт YouTube. При ошибке попробуй плеер автора или аудиоразбор.',
+  ));
+  audio.addEventListener('click', showAudio);
+  if (file) {
+    youtube.disabled = true;
+    showAudio();
+    status.textContent = 'HTML открыт как файл. Для YouTube открой урок по HTTP. Здесь можно использовать плеер автора или аудиоразбор.';
+  }
+  return reset;
+}
+
+function normalizeAnswer(value) {
+  return value.normalize('NFD').toLowerCase().replace(/[\p{M}\p{P}\s]/gu, '');
+}
+
+function setupCheck(form) {
+  const answers = [...form.querySelectorAll('[data-answer]')];
+  const feedback = form.querySelector('.feedback');
+  const key = 'check:' + form.id;
+  const previous = read(key);
+  if (previous !== null) feedback.textContent = 'Первая попытка: ' + previous + ' из ' + answers.length + '.';
+  for (const field of answers) {
+    const fieldKey = key + ':' + field.name;
+    const saved = read(fieldKey);
+    if (saved !== null) field.value = saved;
+    field.addEventListener('input', () => save(fieldKey, field.value));
+  }
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const result = answers.map(field => {
+      const expected = field.dataset.answer.split('|').map(normalizeAnswer);
+      return { field, correct: expected.includes(normalizeAnswer(field.value)) };
+    });
+    const score = result.filter(item => item.correct).length;
+    const first = read(key) ?? String(score);
+    save(key, first);
+    const heading = document.createElement('p');
+    heading.textContent = 'Сейчас: ' + score + ' из ' + answers.length + '. Первая попытка: ' + first + '.';
+    const list = document.createElement('ol');
+    for (const { field, correct } of result) {
+      const item = document.createElement('li');
+      item.textContent = correct ? field.dataset.correct : field.dataset.hint;
+      list.append(item);
+    }
+    feedback.replaceChildren(heading, list);
+  });
+}
+
+function setupRecorder() {
+  const panel = document.querySelector('#lesson-recorder');
+  if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) return () => {};
+  const start = document.querySelector('#record-start');
+  const stop = document.querySelector('#record-stop');
+  const status = document.querySelector('#record-status');
+  const player = document.querySelector('#record-play');
+  const download = document.querySelector('#record-download');
+  let recorder;
+  let stream;
+  let audioUrl;
+  let generation = 0;
+  let saveGeneration;
+  let recordingLimit;
+
+  function stopCapture(keep = false) {
+    saveGeneration = keep ? generation : undefined;
+    generation += 1;
+    window.clearTimeout(recordingLimit);
+    if (recorder?.state === 'recording') recorder.stop();
+    if (stream) for (const track of stream.getTracks()) track.stop();
+    stream = undefined;
+    start.disabled = false;
+    stop.disabled = true;
+  }
+
+  start.addEventListener('click', async () => {
+    saveGeneration = undefined;
+    const request = ++generation;
+    start.disabled = true;
+    player.pause();
+    status.textContent = 'Ожидаю разрешение на микрофон…';
+    try {
+      const input = await navigator.mediaDevices.getUserMedia({ audio: true });
+      if (request !== generation) {
+        for (const track of input.getTracks()) track.stop();
+        return;
+      }
+      stream = input;
+      recorder = new MediaRecorder(input);
+      const chunks = [];
+      recorder.addEventListener('dataavailable', event => {
+        if (event.data.size) chunks.push(event.data);
+      });
+      recorder.addEventListener('error', () => {
+        if (request !== generation) return;
+        stopCapture();
+        status.textContent = 'Не удалось записать звук. Можно использовать диктофон телефона.';
+      });
+      recorder.addEventListener('stop', () => {
+        if (request !== generation && request !== saveGeneration) return;
+        if (!chunks.length) {
+          status.textContent = 'Звук не записался. Попробуй ещё раз или используй диктофон телефона.';
+          return;
+        }
+        if (audioUrl) URL.revokeObjectURL(audioUrl);
+        const type = chunks[0].type || 'audio/webm';
+        audioUrl = URL.createObjectURL(new Blob(chunks, { type }));
+        player.src = audioUrl;
+        player.hidden = false;
+        download.href = audioUrl;
+        const extension = type.includes('mp4') ? 'm4a' : type.includes('ogg') ? 'ogg' : 'webm';
+        download.download = 'chinese-mission-lesson-1.' + extension;
+        download.hidden = false;
+        status.textContent = 'Дубль записан. Прослушай его или скачай.';
+      });
+      recorder.start();
+      recordingLimit = window.setTimeout(() => stopCapture(true), 90000);
+      stop.disabled = false;
+      status.textContent = 'Идёт запись.';
+    } catch {
+      if (request !== generation) return;
+      stopCapture();
+      status.textContent = 'Нет доступа к микрофону. Можно записать дубль на телефон.';
+    }
+  });
+
+  stop.addEventListener('click', () => {
+    status.textContent = 'Обрабатываю запись…';
+    stopCapture(true);
+  });
+  window.addEventListener('pagehide', () => {
+    stopCapture();
+    if (audioUrl) {
+      URL.revokeObjectURL(audioUrl);
+      audioUrl = undefined;
+      player.removeAttribute('src');
+      player.hidden = true;
+      download.removeAttribute('href');
+      download.hidden = true;
+    }
+  });
+  panel.hidden = false;
+  return () => {
+    if (!start.disabled) return;
+    stopCapture();
+    status.textContent = 'Запись остановлена при переходе к другому уроку.';
+  };
+}
+
+function showClock() {
+  const seconds = Math.floor((elapsed + (startedAt === null ? 0 : performance.now() - startedAt)) / 1000);
+  const minutes = String(Math.floor(seconds / 60)).padStart(2, '0');
+  time.textContent = minutes + ':' + String(seconds % 60).padStart(2, '0');
+  clock.textContent = startedAt === null
+    ? (elapsed ? 'Продолжить отсчёт' : 'Начать отсчёт')
+    : 'Пауза';
+}
+
+function pauseClock() {
+  if (startedAt === null) return;
+  elapsed += performance.now() - startedAt;
+  startedAt = null;
+  save(activeDay.id + ':elapsed', String(Math.floor(elapsed)));
+  showClock();
+}
+
+function showProgress() {
+  const completed = blocks.filter(block => block.marker?.checked).length;
+  const total = blocks.filter(block => block.marker).length;
+  progress.textContent = completed + ' из ' + total + ' рабочих блоков отмечено';
+}
+
+function setupBlocks(day) {
+  return [...day.querySelectorAll('section')].map((section, index) => {
+    const title = section.querySelector('h3').textContent;
+    const timing = section.querySelector('.time').textContent;
+    const optionText = timing.split(' · ')[0] + ' · ' + title;
+    section.tabIndex = -1;
+    let marker;
+    if (!timing.includes('ПЕРЕРЫВ')) {
+      const label = document.createElement('label');
+      marker = document.createElement('input');
+      const key = day.id + ':block:' + index;
+      marker.type = 'checkbox';
+      marker.checked = read(key) === 'done';
+      label.className = 'work-label';
+      label.append(marker, ' Я выполнил задания этого блока');
+      section.append(label);
+      marker.addEventListener('change', () => {
+        save(key, marker.checked ? 'done' : '');
+        showProgress();
+      });
+    }
+    if (day.id === 'day1') {
+      const prev = document.createElement('button');
+      prev.type = 'button';
+      prev.textContent = 'Назад';
+      prev.className = 'stage-prev';
+      prev.addEventListener('click', () => showStage(index - 1, true));
+      const next = document.createElement('button');
+      next.type = 'button';
+      next.textContent = 'Следующий блок';
+      next.className = 'stage-next';
+      next.addEventListener('click', () => showStage(index + 1, true));
+      section.append(prev, next);
+    }
+    return { section, optionText, marker };
+  });
+}
+
+const dayBlocks = new Map(days.map(day => [day.id, setupBlocks(day)]));
+
+function showStage(index, moveFocus = false) {
+  stopInlineMedia();
+  stage = Math.min(Math.max(index, 0), blocks.length - 1);
+  const guided = activeDay.id === 'day1' && guidedMode.checked;
+  if (guided && stage !== 0) pauseLecture();
+  if (guided && !blocks[stage].section.contains(document.querySelector('#lesson-recorder'))) pauseRecorder();
+  blocks.forEach((block, position) => {
+    block.section.hidden = guided && position !== stage;
+    const next = block.section.querySelector('.stage-next');
+    const prev = block.section.querySelector('.stage-prev');
+    if (prev) prev.hidden = !guided || position === 0;
+    if (next) next.hidden = !guided || position === blocks.length - 1;
+  });
+  steps.value = String(stage);
+  if (guided) save('day1:stage', String(stage));
+  if (moveFocus) {
+    const section = blocks[stage].section;
+    section.focus({ preventScroll: true });
+    section.scrollIntoView({ block: 'start' });
+  }
+}
+
+function selectDay() {
+  stopInlineMedia();
+  const id = days.some(day => '#' + day.id === location.hash) ? location.hash.slice(1) : 'day1';
+  if (activeDay?.id === 'day1' && id !== 'day1') pauseRecorder();
+  if (activeDay?.id === 'day1' && id !== 'day1') pauseLecture();
+  pauseClock();
+  activeDay = days.find(day => day.id === id);
+  blocks = dayBlocks.get(id);
+  guidedOption.hidden = id !== 'day1';
+  elapsed = Math.max(0, Number(read(id + ':elapsed')) || 0);
+  steps.replaceChildren(new Option('Перейти к заданию', ''));
+  blocks.forEach((block, index) => steps.add(new Option(block.optionText, String(index))));
+  for (const day of days) day.hidden = day.id !== id;
+  for (const extra of document.querySelectorAll('[data-extra]')) extra.hidden = extra.dataset.extra !== id;
+  for (const link of links) {
+    if (link.hash === '#' + id) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  }
+  showClock();
+  showProgress();
+  showStage(id === 'day1' ? Number(read('day1:stage')) || 0 : 0);
+}
+
+function read(key) {
+  if (sessionValues.has(key)) return sessionValues.get(key);
+  try { return localStorage.getItem(prefix + key); }
+  catch { return null; }
+}
+
+function save(key, value) {
+  sessionValues.set(key, value);
+  try { localStorage.setItem(prefix + key, value); }
+  catch { document.querySelector('#storage-status').textContent = 'Браузер не дал сохранить ответы. Скопируй их перед закрытием.'; }
+}
+
+function applyTheme() {
+  document.documentElement.dataset.theme = theme.value;
+}
+
+clock.addEventListener('click', () => {
+  if (startedAt !== null) pauseClock();
+  else {
+    startedAt = performance.now();
+    showClock();
+  }
+});
+
+steps.addEventListener('change', () => {
+  if (steps.value === '') return;
+  showStage(Number(steps.value), true);
+});
+
+guidedMode.checked = read('guided') === 'yes';
+guidedMode.addEventListener('change', () => {
+  save('guided', guidedMode.checked ? 'yes' : '');
+  showStage(stage, true);
+});
+
+window.setInterval(() => {
+  if (startedAt === null) return;
+  showClock();
+}, 1000);
+window.addEventListener('pagehide', pauseClock);
+
+theme.value = read('theme') === 'dark' ? 'dark' : 'light';
+applyTheme();
+theme.addEventListener('change', () => {
+  applyTheme();
+  save('theme', theme.value);
+});
+
+for (const field of fields) {
+  field.value = read(field.id) ?? '';
+  field.addEventListener('input', () => save(field.id, field.value));
+}
+
+for (const form of document.querySelectorAll('[data-check]')) setupCheck(form);
+function setupInlineMedia() {
+  const buttons = [...document.querySelectorAll('[data-inline-media]')];
+  function stop() {
+    for (const button of buttons) {
+      const frame = button.nextElementSibling;
+      frame.removeAttribute('src');
+      frame.hidden = true;
+      button.hidden = false;
+    }
+  }
+  for (const button of buttons) {
+    button.addEventListener('click', () => {
+      stop();
+      pauseLecture();
+      const frame = button.nextElementSibling;
+      frame.src = frame.dataset.src;
+      frame.hidden = false;
+      button.hidden = true;
+    });
+  }
+  window.addEventListener('pagehide', stop);
+  return stop;
+}
+const stopInlineMedia = setupInlineMedia();
+const pauseRecorder = setupRecorder();
+const pauseLecture = setupLecture();
+
+window.addEventListener('hashchange', () => {
+  selectDay();
+  activeDay.tabIndex = -1;
+  activeDay.focus({ preventScroll: true });
+  activeDay.scrollIntoView({ block: 'start' });
+});
+selectDay();
+toolbar.hidden = false;
+</script>
+</html>
