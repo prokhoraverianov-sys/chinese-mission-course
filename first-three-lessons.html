@@ -171,6 +171,14 @@ article,article section{scroll-margin-top:130px}summary{color:var(--accent);font
 <section><div class="time">00–08 · ПОВТОРЕНИЕ</div><h3>Поздоровайся и назови себя</h3>
 <ol><li>Поздоровайся, назови себя и спроси имя. Сделай две попытки, как на рабочем звонке.</li><li>Сверь пример, затем скажи те же реплики с другим именем.</li></ol><details><summary>Образец</summary><p lang="zh-Hans">您好，我叫安娜。您叫什么名字？</p><p>Nín hǎo, wǒ jiào Ānnà. Nín jiào shénme míngzi? · Здравствуйте, я Анна. Как вас зовут?</p></details><details><summary>Заметки о повторении</summary><label for="d2-recall">Заметки о повторении</label><textarea id="d2-recall"></textarea></details></section>
 <section><div class="time">08–20 · ТЕОРИЯ И ЗВУК</div><h3>Цифры по одной</h3>
+<div class="video-lesson">
+  <div class="video-copy">
+    <h4>Видео · Как показывают цифры от 1 до 10</h4>
+    <p>Посмотри, как преподаватель показывает цифры одной рукой. Поставь на паузу после каждого жеста и повтори цифру вслух. Ноль послушай в записи под таблицей.</p>
+    <video controls playsinline preload="none" style="display:block;width:min(100%,640px);height:auto;aspect-ratio:16/9" aria-label="Open University · Жесты для цифр от 1 до 10" src="https://www.open.edu/openlearn/pluginfile.php/2656514/mod_oucontent/oucontent/99938/4df88424/4257ad95/l108_2024j_vid0003_640x360.mp4"></video>
+    <p><a href="https://www.open.edu/openlearn/languages/beginners-chinese-taster-course/content-section-6#id30" target="_blank" rel="noopener">Источник видео · Open University</a></p>
+  </div>
+</div>
 <p lang="zh-Hans">零 一 二 三 四 五 六 七 八 九 十</p><p>líng · yī · èr · sān · sì · wǔ · liù · qī · bā · jiǔ · shí</p><button type="button" data-inline-media>Слушать здесь · Open University · Цифры от нуля до десяти</button><iframe hidden data-src="https://player.open.ac.uk/embed/e7d91043b2" title="Open University · Цифры от нуля до десяти" referrerpolicy="strict-origin-when-cross-origin"></iframe><p><a href="https://www.open.edu/openlearn/languages/beginners-chinese?trackno=3" target="_blank" rel="noopener">Источник записи · Open University</a></p><p>Прослушай ряд с таблицей, затем повтори с паузами. Отдельно сравни 1 и 7, затем 4 и 10. В коде 10 звучит <em>yī líng</em>, а число десять — <em>shí</em>. В реальной диктовке для единицы бывает и <em>yāo</em>.</p><form class="check" id="week-d2-model" data-check><label>Как продиктовать код 10?<select name="ten" required data-answer="yī líng" data-correct="Код читается по позициям: yī líng." data-hint="Код читается по позициям: yī líng."><option value="">Выбери ответ</option><option>shí</option><option>líng yī</option><option>yī líng</option></select></label><button>Проверить</button><div class="feedback" aria-live="polite"></div></form></section>
 <section><div class="time">20–32 · АУДИРОВАНИЕ</div><h3>Услышь порядок и нули</h3>
 <p>Вернись к записи с цифрами выше. Прослушай пары 1 и 7, 4 и 10. Поставь на паузу после каждой цифры и повтори. Затем закрой таблицу и выбери, какие цифры соответствуют этим двум парам.</p><form class="check" id="week-d2-sound-pairs" data-check><label>yī → qī<select name="a" required data-answer="1 → 7" data-correct="yī — один, qī — семь." data-hint="yī — один, qī — семь."><option value="">Выбери ответ</option><option>7 → 1</option><option>1 → 7</option><option>1 → 4</option></select></label>
@@ -678,7 +686,7 @@ async function setupOrderAudio() {
   }
 }
 window.addEventListener('hashchange', () => {
-  for (const player of document.querySelectorAll('audio')) player.pause();
+  for (const player of document.querySelectorAll('audio, video')) player.pause();
   setupOrderAudio();
 });
 setupOrderAudio();
