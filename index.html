@@ -3,7 +3,38 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4efe6">
+  <meta name="theme-color" content="#171d23">
+  <script>
+    (() => {
+      const key = 'chinese-mission-month-theme';
+      let theme = 'dark';
+      try {
+        if (localStorage.getItem(key) === 'light') theme = 'light';
+      } catch {
+        // The theme is still selectable when browser storage is unavailable.
+      }
+
+      function applyTheme(value) {
+        document.documentElement.dataset.theme = value;
+        document.querySelector('meta[name="theme-color"]').content =
+          value === 'dark' ? '#171d23' : '#f4efe6';
+      }
+
+      applyTheme(theme);
+      document.addEventListener('DOMContentLoaded', () => {
+        const picker = document.getElementById('course-theme');
+        picker.value = theme;
+        picker.addEventListener('change', () => {
+          applyTheme(picker.value);
+          try {
+            localStorage.setItem(key, picker.value);
+          } catch {
+            // The current page keeps the selected theme.
+          }
+        });
+      });
+    })();
+  </script>
   <title>Chinese Mission · Первый месяц</title>
   <link rel="stylesheet" href="./month-course.css">
 </head>
@@ -16,11 +47,19 @@
       <button id="reviews-button" type="button">Повторение <span id="due-count"></span></button>
       <button id="progress-button" type="button">Результаты</button>
     </nav>
-    <details class="settings"><summary>Мои данные</summary><div>
-      <p>Прогресс хранится в этом браузере. Скачай копию для переноса.</p>
-      <button id="export-button" type="button">Скачать прогресс</button>
-      <label class="file-label">Загрузить копию<input id="import-file" type="file" accept="application/json,.json"></label>
-    </div></details>
+    <div class="header-tools">
+      <label class="theme-picker">Тема
+        <select id="course-theme">
+          <option value="dark">Тёмная</option>
+          <option value="light">Бумага</option>
+        </select>
+      </label>
+      <details class="settings"><summary>Мои данные</summary><div>
+        <p>Прогресс хранится в этом браузере. Скачай копию для переноса.</p>
+        <button id="export-button" type="button">Скачать прогресс</button>
+        <label class="file-label">Загрузить копию<input id="import-file" type="file" accept="application/json,.json"></label>
+      </div></details>
+    </div>
   </header>
   <p id="storage-status" class="storage-status" role="status" hidden></p>
   <main id="workspace" tabindex="-1"></main>
