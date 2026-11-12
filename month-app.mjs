@@ -25,44 +25,48 @@ function goMap(){mode='map';renderMap();}
 function attemptsFor(a){return state.attempts.filter(t=>t.activityId===a.id);}
 function isDone(a){return attemptsFor(a).length>0;}
 function lessonActivities(l){return l.sections.flatMap(s=>s.activities||[]);}
-function completed(l){return Boolean(state.completedLessons[l.id]||state.creditedLessons[l.id]);}
+function completed(lesson){
+  if (lesson.id <= 3) {
+    try {
+      if (storage.getItem('chinese-mission-start-v1:day' + lesson.id + ':complete') === 'yes') return true;
+    } catch {}
+  }
+  return Boolean(state.completedLessons[lesson.id] || state.creditedLessons[lesson.id]);
+}
 function fmtTime(seconds){return Math.floor((seconds||0)/60)+':'+String(Math.floor((seconds||0)%60)).padStart(2,'0');}
 function updateClock(){const clock=$('active-clock');if(clock)clock.textContent=fmtTime(state.activeSeconds?.[state.position.lesson]);}
 function openLesson(id,section=0,activity=0){stopMedia();mode='lesson';state.position={lesson:id,section,activity};save();renderLesson();}
 function startHomework(week,part){if(week===4&&part===2){const finished=state.completedLessons[12];const opens=finished?finished+48*60*60*1000:null;if(!opens||Date.now()<opens){view(el('section',{},el('p',{class:'eyebrow'},'ОТСРОЧЕННАЯ ПРОВЕРКА'),el('h1',{},'Вернёмся после паузы'),el('p',{},opens?'Проверка откроется '+new Date(opens).toLocaleString('ru-RU')+'. Сейчас можно повторять другие задания.':'Сначала пройди итоговое занятие 12. Эта проверка откроется через 48 часов после него.'),button('На карту',goMap,'primary')));return;}}const pool=course.lessons.filter(l=>l.week===week).flatMap(l=>(l.homework||[]).map(a=>({...a,lessonId:l.id})));const half=Math.ceil(pool.length/2);startQueue(pool.slice(part===1?0:half,part===1?half:pool.length),`Неделя ${week} · домашняя работа ${part}`,'homework');}
 function startQueue(items,title,newMode='review'){if(!items.length){goMap();report('Пока нет заданий для этого повторения.');return;}mode=newMode;queue=items;queueIndex=0;queueTitle=title;renderQueue();}
 function startReviews(){const due=getDueReviews(state,Date.now(),8);const introduced=Math.max(1,...state.attempts.map(a=>a.lessonId||1),...Object.keys(state.completedLessons).map(Number),...Object.keys(state.creditedLessons).map(Number));const chosen=due.map(r=>{const last=state.attempts.filter(t=>t.unit===r.unit).at(-1);const candidates=allActivities.filter(a=>a.unit===r.unit&&a.type!=='speak'&&a.lessonId<=introduced);return candidates.find(a=>a.id!==last?.activityId&&a.id!==r.lastActivityId)||candidates.find(a=>a.id!==last?.activityId)||candidates[0];}).filter(Boolean);startQueue(chosen,'Адресная практика и повторение');}
-const originalFirstLesson = './first-three-lessons.html#day1';
+const weekOnePath = './first-three-lessons.html?v=d36d7ea5';
+const weekOneLessons = {
+  1: {title:'Поздороваться и назвать себя', goal:'Тоны, приветствие, имя и встречный вопрос.'},
+  2: {title:'Услышать и передать короткий код', goal:'Цифры 0–10, порядок и ведущие нули.'},
+  3: {title:'Заказать и проверить количество', goal:'Два напитка в одном заказе и изменение количества.'},
+};
 
-function firstLessonLink(label, className = '') {
-  return el('a', {href: originalFirstLesson, class: className}, label);
+function weekOneLink(hash, label, className = '') {
+  return el('a', {href: weekOnePath + hash, class: className}, label);
 }
 
 function renderMap(){stopMedia();const container=el('div');const next=course.lessons.find(l=>!completed(l))||course.lessons.at(-1);const count=course.lessons.filter(completed).length;const totalSeconds=Object.values(state.activeSeconds||{}).reduce((a,b)=>a+b,0);
-  container.append(el('section',{class:'hero'},el('div',{},el('p',{class:'eyebrow'},'ПЕРВЫЙ МЕСЯЦ · ТВОЙ МАРШРУТ'),el('h1',{},'Понимать. Отвечать. Продолжать разговор.'),el('p',{class:'muted'},'Четыре недели практики: знакомство, заказ и простая встреча. Выбирай ответы, собирай реплики нажатием и говори вслух.'),el('div',{class:'actions'},button('Продолжить занятие',()=>{const p=state.position;if(p?.lesson===1&&completed(course.lessons[0]))openLesson(next.id);else openLesson(p?.lesson||next.id,p?.section||0,p?.activity||0);},'primary'),button('Что пора повторить',startReviews))),el('aside',{class:'hero-aside'},el('div',{class:'stats'},el('div',{},el('strong',{},String(count).padStart(2,'0')),el('span',{class:'stat-label'},'из 12 занятий пройдено')),el('div',{},el('strong',{},'60'),el('span',{class:'stat-label'},'минут · план занятия'))),el('p',{class:'muted'},`Активная работа здесь: ${fmtTime(totalSeconds)}. Время фиксируется при открытом занятии и недавнем взаимодействии.`))));
-  if (state.creditedLessons[1]) {
+  container.append(el('section',{class:'hero'},el('div',{},el('p',{class:'eyebrow'},'ПЕРВЫЙ МЕСЯЦ · ТВОЙ МАРШРУТ'),el('h1',{},'Понимать. Отвечать. Продолжать разговор.'),el('p',{class:'muted'},'Четыре недели практики: знакомство, заказ и простая встреча. Выбирай ответы, собирай реплики нажатием и говори вслух.'),el('div',{class:'actions'},next.id<=3
+    ? weekOneLink('#day'+next.id,'Продолжить занятие','course-action')
+    : button('Продолжить занятие',()=>{const p=state.position;if(p?.lesson>3&&!completed(course.lessons[p.lesson-1]))openLesson(p.lesson,p.section,p.activity);else openLesson(next.id);},'primary'),button('Что пора повторить',startReviews))),el('aside',{class:'hero-aside'},el('div',{class:'stats'},el('div',{},el('strong',{},String(count).padStart(2,'0')),el('span',{class:'stat-label'},'из 12 занятий пройдено')),el('div',{},el('strong',{},'60'),el('span',{class:'stat-label'},'минут · план занятия'))),el('p',{class:'muted'},`Активная работа здесь: ${fmtTime(totalSeconds)}. Время фиксируется при открытом занятии и недавнем взаимодействии.`))));
+  if (state.creditedLessons[1] && !completed(course.lessons[1])) {
     container.append(el('p', {class: 'notice'}, 'Урок 1 пройден к 8 ноября 2026. Продолжай с урока 2.'));
   }
-  const firstLesson = course.lessons[0];
-  const examples = new Map(firstLesson.sections.flatMap(section => section.examples || []).map(example => [example.zh, example]));
-  const review = firstLesson.sections
-    .filter(section => ['listen', 'build', 'speak'].includes(section.id))
-    .flatMap(section => section.activities)
-    .map(activity => ({...activity, lessonId: firstLesson.id}));
-  container.append(el('section', {class: 'notice'},
-    el('h2', {}, 'Повторение урока 1'),
-    el('p', {}, 'Вспомни, как поздороваться, назвать своё имя и спросить имя собеседника. Можно сразу перейти к уроку 2.'),
-    el('details', {class: 'help'}, el('summary', {}, 'Фразы, пиньинь, перевод и аудио'),
-      el('div', {class: 'examples'}, [...examples.values()].map(exampleView))),
-    el('div', {class: 'actions'}, button(`Повторить: ${review.length} заданий`,
-      () => startQueue(review, 'Повторение урока 1')), firstLessonLink('Открыть исходный урок 1'))));
+  container.append(el('section',{class:'notice'},el('h2',{},'Повторение урока 1'),
+    el('p',{},'В исходном уроке — лекция о тонах, фразы знакомства и упражнения. После повторения сделай первое домашнее задание.'),
+    el('div',{class:'actions'},weekOneLink('#day1','Открыть исходный урок 1'),weekOneLink('#hw1','Домашнее задание 1'))));
   container.append(el('p',{class:'notice warn'},'Учебная сборка. Час — план нагрузки, не измеренная длительность. Синтетическое аудио используется для тренировки; слух и произношение пока не подтверждены преподавателем.'));
   const weekTitles=['Основа общения','Заказ и точность','Человек и время','Соединяем навыки'];
   for(let week=1;week<=4;week++){const section=el('section',{class:'week'},el('div',{class:'week-heading'},el('h2',{},`0${week} / ${weekTitles[week-1]}`),el('span',{},'3 занятия · 2 домашних задания')));const grid=el('div',{class:'lesson-grid'});
-    for(const l of course.lessons.filter(l=>l.week===week)){const done=completed(l);grid.append(l.id===1
-      ? el('a',{href:originalFirstLesson,class:'lesson-card',style:'color:inherit;text-decoration:none'})
-      : button('',()=>openLesson(l.id),'lesson-card'));const card=grid.lastElementChild;card.append(el('div',{class:'eyebrow'},`ЗАНЯТИЕ ${String(l.id).padStart(2,'0')}${l.checkpoint?' · РУБЕЖ':''}`),el('h3',{},l.title),el('p',{},l.goal),el('div',{class:'card-bottom'},el('span',{class:done?'pill':''},done?'Пройдено':lessonActivities(l).filter(isDone).length+' ответов сохранено'),el('span',{},'60 мин →')));}
-    section.append(grid,el('div',{class:'homework-row'},button('ДЗ 1 · 15–20 минут',()=>startHomework(week,1)),button('ДЗ 2 · 15–20 минут',()=>startHomework(week,2))));container.append(section);}
+    for(const l of course.lessons.filter(l=>l.week===week)){const done=completed(l);const early=weekOneLessons[l.id];grid.append(early
+      ? weekOneLink('#day'+l.id,'','lesson-card')
+      : button('',()=>openLesson(l.id),'lesson-card'));const card=grid.lastElementChild;card.append(el('div',{class:'eyebrow'},`ЗАНЯТИЕ ${String(l.id).padStart(2,'0')}${l.checkpoint&&!early?' · РУБЕЖ':''}`),el('h3',{},early?.title||l.title),el('p',{},early?.goal||l.goal),el('div',{class:'card-bottom'},el('span',{class:done?'pill':''},done?'Пройдено':lessonActivities(l).filter(isDone).length+' ответов сохранено'),el('span',{},'60 мин →')));}
+    section.append(grid,el('div',{class:'homework-row'},...(week===1?[weekOneLink('#hw1','ДЗ после занятия 1'),weekOneLink('#hw2','ДЗ после занятия 2')]:[button('ДЗ 1 · 15–20 минут',()=>startHomework(week,1)),button('ДЗ 2 · 15–20 минут',()=>startHomework(week,2))])));container.append(section);}
   container.append(el('details',{class:'source-list'},el('summary',{},'Учебная основа и ограничения'),el('p',{},'Фразы и задания написаны для этого курса. Китайский текст и аудио ожидают человеческой проверки. Выбор ответа, устная попытка и подтверждённое произношение — разные результаты.'),el('ul',{},(course.sources||[]).map(s=>el('li',{},el('a',{href:s.url,target:'_blank',rel:'noopener'},s.title),s.note?' — '+s.note:'')))));
   view(container);
 }
