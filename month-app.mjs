@@ -36,6 +36,16 @@ function renderMap(){stopMedia();const container=el('div');const next=course.les
   if (state.creditedLessons[1]) {
     container.append(el('p', {class: 'notice'}, 'Урок 1 пройден к 8 ноября 2026. Продолжай с урока 2.'));
   }
+  const firstLesson = course.lessons[0];
+  const examples = new Map(firstLesson.sections.flatMap(section => section.examples || []).map(example => [example.zh, example]));
+  const review = course.lessons[1].sections[0].activities.map(activity => ({...activity, lessonId: 2}));
+  container.append(el('section', {class: 'notice'},
+    el('h2', {}, 'Повторение урока 1'),
+    el('p', {}, 'Вспомни, как поздороваться, назвать своё имя и спросить имя собеседника. Можно сразу перейти к уроку 2.'),
+    el('details', {class: 'help'}, el('summary', {}, 'Фразы, пиньинь, перевод и аудио'),
+      el('div', {class: 'examples'}, [...examples.values()].map(exampleView))),
+    el('div', {class: 'actions'}, button('Повторить: 3 задания',
+      () => startQueue(review, 'Повторение урока 1')))));
   container.append(el('p',{class:'notice warn'},'Учебная сборка. Час — план нагрузки, не измеренная длительность. Синтетическое аудио используется для тренировки; слух и произношение пока не подтверждены преподавателем.'));
   const weekTitles=['Основа общения','Заказ и точность','Человек и время','Соединяем навыки'];
   for(let week=1;week<=4;week++){const section=el('section',{class:'week'},el('div',{class:'week-heading'},el('h2',{},`0${week} / ${weekTitles[week-1]}`),el('span',{},'3 занятия · 2 домашних задания')));const grid=el('div',{class:'lesson-grid'});
