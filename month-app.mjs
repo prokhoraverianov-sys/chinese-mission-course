@@ -1,4 +1,5 @@
 import {course} from './month-content.mjs';
+import {lessonAudio} from './month-lesson-audio.mjs';
 import {STORAGE_KEY,readState,recordAttempt,markLessonComplete,creditFirstLesson,getDueReviews,exportProgress,importProgress,shuffle} from './month-engine.mjs';
 
 const $=id=>document.getElementById(id);
@@ -38,14 +39,17 @@ function renderMap(){stopMedia();const container=el('div');const next=course.les
   }
   const firstLesson = course.lessons[0];
   const examples = new Map(firstLesson.sections.flatMap(section => section.examples || []).map(example => [example.zh, example]));
-  const review = course.lessons[1].sections[0].activities.map(activity => ({...activity, lessonId: 2}));
+  const review = firstLesson.sections
+    .filter(section => ['listen', 'build', 'speak'].includes(section.id))
+    .flatMap(section => section.activities)
+    .map(activity => ({...activity, lessonId: firstLesson.id}));
   container.append(el('section', {class: 'notice'},
     el('h2', {}, 'Повторение урока 1'),
     el('p', {}, 'Вспомни, как поздороваться, назвать своё имя и спросить имя собеседника. Можно сразу перейти к уроку 2.'),
     el('details', {class: 'help'}, el('summary', {}, 'Фразы, пиньинь, перевод и аудио'),
       el('div', {class: 'examples'}, [...examples.values()].map(exampleView))),
-    el('div', {class: 'actions'}, button('Повторить: 3 задания',
-      () => startQueue(review, 'Повторение урока 1')))));
+    el('div', {class: 'actions'}, button(`Повторить: ${review.length} заданий`,
+      () => startQueue(review, 'Повторение урока 1')), button('Открыть урок 1 целиком', () => openLesson(1)))));
   container.append(el('p',{class:'notice warn'},'Учебная сборка. Час — план нагрузки, не измеренная длительность. Синтетическое аудио используется для тренировки; слух и произношение пока не подтверждены преподавателем.'));
   const weekTitles=['Основа общения','Заказ и точность','Человек и время','Соединяем навыки'];
   for(let week=1;week<=4;week++){const section=el('section',{class:'week'},el('div',{class:'week-heading'},el('h2',{},`0${week} / ${weekTitles[week-1]}`),el('span',{},'3 занятия · 2 домашних задания')));const grid=el('div',{class:'lesson-grid'});
@@ -54,8 +58,31 @@ function renderMap(){stopMedia();const container=el('div');const next=course.les
   container.append(el('details',{class:'source-list'},el('summary',{},'Учебная основа и ограничения'),el('p',{},'Фразы и задания написаны для этого курса. Китайский текст и аудио ожидают человеческой проверки. Выбор ответа, устная попытка и подтверждённое произношение — разные результаты.'),el('ul',{},(course.sources||[]).map(s=>el('li',{},el('a',{href:s.url,target:'_blank',rel:'noopener'},s.title),s.note?' — '+s.note:'')))));
   view(container);
 }
-function exampleView(example){return el('div',{class:'example'},button('Послушать',()=>speakText(example.zh),'ghost'),el('div',{class:'zh',lang:'zh-Hans'},example.zh),el('div',{class:'pinyin'},example.pinyin),el('div',{class:'translation'},example.ru));}
-function speakText(text,onEnd=()=>{},onError=()=>{},rate=.82){if(activeAudio){activeAudio.pause();activeAudio.src='';activeAudio=null;}if(pilotAudio[text]){const audio=new Audio(`./audio-v2/${pilotAudio[text]}-a-${rate<.75?'learner':'natural'}.mp3`);activeAudio=audio;audio.addEventListener('ended',onEnd,{once:true});audio.addEventListener('error',onError,{once:true});audio.play().catch(onError);return true;}if(!('speechSynthesis'in window)){onError();return false;}const voices=window.speechSynthesis.getVoices().filter(v=>/^zh[-_](CN|SG|TW)\b/i.test(v.lang)).sort((a,b)=>Number(/^zh[-_]CN/i.test(b.lang))-Number(/^zh[-_]CN/i.test(a.lang)));if(!voices.length){onError();report('Китайский голос ещё не загрузился или недоступен. Можно нажать «Слушать» ещё раз либо выбрать чтение вместо слуха.');return false;}window.speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(text);utterance.lang=voices[0].lang;utterance.voice=voices[0];utterance.rate=rate;utterance.onend=onEnd;utterance.onerror=onError;window.speechSynthesis.speak(utterance);return true;}
+function sampleButton(text){
+  const status = el('small', {class:'audio-status',role:'status'});
+  const play = button('Послушать', () => {
+    status.textContent = '';
+    speakText(text, () => {}, () => {status.textContent = 'Не удалось воспроизвести. Попробуй ещё раз.';});
+  }, 'ghost');
+  return [play, status];
+}
+function exampleView(example){return el('div',{class:'example'},...sampleButton(example.zh),el('div',{class:'zh',lang:'zh-Hans'},example.zh),el('div',{class:'pinyin'},example.pinyin),el('div',{class:'translation'},example.ru));}
+function speakText(text,onEnd=()=>{},onError=()=>{},rate=.82){if(activeAudio){activeAudio.pause();activeAudio.src='';activeAudio=null;}if(Object.hasOwn(lessonAudio,text)){
+    const audio = new Audio('data:audio/mpeg;base64,' + lessonAudio[text]);
+    activeAudio = audio;
+    audio.playbackRate = rate < .75 ? .8 : 1;
+    const finish = callback => {
+      if (activeAudio !== audio) return;
+      activeAudio = null;
+      callback();
+    };
+    const fail = () => finish(onError);
+    audio.addEventListener('ended', () => finish(onEnd), {once:true});
+    audio.addEventListener('error', fail, {once:true});
+    audio.play().catch(fail);
+    return true;
+  }
+  if(pilotAudio[text]){const audio=new Audio(`./audio-v2/${pilotAudio[text]}-a-${rate<.75?'learner':'natural'}.mp3`);activeAudio=audio;audio.addEventListener('ended',onEnd,{once:true});audio.addEventListener('error',onError,{once:true});audio.play().catch(onError);return true;}if(!('speechSynthesis'in window)){onError();return false;}const voices=window.speechSynthesis.getVoices().filter(v=>/^zh[-_](CN|SG|TW)\b/i.test(v.lang)).sort((a,b)=>Number(/^zh[-_]CN/i.test(b.lang))-Number(/^zh[-_]CN/i.test(a.lang)));if(!voices.length){onError();report('Китайский голос ещё не загрузился или недоступен. Можно нажать «Слушать» ещё раз либо выбрать чтение вместо слуха.');return false;}window.speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(text);utterance.lang=voices[0].lang;utterance.voice=voices[0];utterance.rate=rate;utterance.onend=onEnd;utterance.onerror=onError;window.speechSynthesis.speak(utterance);return true;}
 function renderLesson(){stopMedia();const l=course.lessons.find(l=>l.id===state.position.lesson)||course.lessons[1];state.position.lesson=l.id;const index=Math.min(Math.max(state.position.section||0,0),l.sections.length-1);state.position.section=index;const section=l.sections[index];const activities=section.activities||[];state.position.activity=Math.min(Math.max(state.position.activity||0,0),Math.max(0,activities.length-1));const a=activities[state.position.activity];
   const sidebar=el('aside',{class:'lesson-sidebar'},button('← Мой месяц',goMap,'ghost'),el('p',{class:'eyebrow'},`НЕДЕЛЯ ${l.week} · ЗАНЯТИЕ ${l.id}`),el('h2',{},l.title));const nav=el('nav',{class:'section-nav','aria-label':'Блоки занятия'});l.sections.forEach((s,i)=>nav.append(button(s.title,()=>openLesson(l.id,i),'',{'aria-current':i===index?'step':undefined})));sidebar.append(nav);
   const main=el('section',{class:'lesson-main'},el('div',{class:'lesson-meta'},el('span',{},`БЛОК ${index+1} ИЗ ${l.sections.length}`),el('span',{},`${section.minutes} мин · план`),el('span',{},'Активно: ',el('span',{id:'active-clock'},fmtTime(state.activeSeconds?.[l.id])))),el('h1',{},section.title),el('p',{class:'study-copy'},section.intro||''));
@@ -73,9 +100,9 @@ function renderQueue(){stopMedia();const a=queue[queueIndex];if(!a){view(el('sec
   view(el('section',{},button('← Мой месяц',goMap,'ghost'),el('p',{class:'eyebrow'},queueTitle),el('h1',{},mode==='homework'?'Короткая практика':'Вспомни без разогрева'),el('p',{class:'muted'},`Задание ${queueIndex+1} из ${queue.length}. Знакомый вариант считается тренировкой; отсроченный результат требует другого задания.`),activityView(a,()=>{queueIndex++;renderQueue();})));
 }
 function activityView(a,onNext){let response=a.type==='tiles'?[]:'',helped=false,plays=0,listened=!a.audio,submitted=false,fallback=false;const outer=el('section',{class:'activity','data-activity-id':a.id});const saved=attemptsFor(a);outer.append(el('p',{class:'eyebrow'},`${skillNames[a.skill]||'Практика'}${saved.length?' · есть прежняя попытка':''}`),el('h2',{},a.prompt));if(a.context)outer.append(el('p',{class:'activity-context'},a.context));const tools=el('div',{class:'audio-tools'});const audioStatus=el('div',{class:'audio-status',role:'status'});const answerArea=el('div');const feedback=el('div',{role:'status','aria-live':'polite'});const submit=button(a.type==='speak'?'Я сказал без готового текста':'Проверить',()=>commit(),'primary');submit.disabled=a.type!=='speak';
-  function reference(){const ref=a.reference;return ref?el('div',{class:'help-content'},el('div',{class:'zh',lang:'zh-Hans'},ref.zh),el('div',{class:'pinyin'},ref.pinyin),el('div',{},ref.ru)):el('div',{class:'help-content'},a.errorHint||'Вспомни правило из объяснения этого блока.');}
+  function reference(){const ref=a.reference;return ref?el('div',{class:'help-content'},el('div',{class:'zh',lang:'zh-Hans'},ref.zh),el('div',{class:'pinyin'},ref.pinyin),el('div',{},ref.ru),Object.hasOwn(lessonAudio,ref.zh)?sampleButton(ref.zh):[]):el('div',{class:'help-content'},a.errorHint||'Вспомни правило из объяснения этого блока.');}
   function updateSubmit(){const ready=a.type==='speak'||(a.type==='digits'?response.length===String(a.answer).length:Array.isArray(response)?response.length>0:response.length>0);submit.disabled=submitted||!ready||(!listened&&Boolean(a.audio)&&!fallback);}
-  if(a.audio){audioStatus.textContent='Синтетический учебный голос. Сначала прослушай; текст можно открыть как помощь.';const play=button('▶ Слушать',()=>{if(submitted)return;play.disabled=true;audioStatus.textContent='Воспроизведение…';const ok=speakText(a.audio.text,()=>{listened=true;play.disabled=false;audioStatus.textContent='Прослушано. Можно ответить или послушать ещё раз.';updateSubmit();},()=>{play.disabled=false;audioStatus.textContent='Аудио недоступно. Используй вариант на чтение — он не даёт результат по слуху.';});if(ok){plays++;}else play.disabled=false;});const slower=button('Медленнее',()=>{helped=true;const ok=speakText(a.audio.text,()=>{listened=true;audioStatus.textContent='Прослушано медленнее · попытка с помощью';updateSubmit();},()=>{audioStatus.textContent='Голос недоступен. Можно перейти к чтению.';},.65);if(ok)plays++;},'ghost');const readInstead=button('Читать вместо аудио',()=>{if(submitted||fallback)return;fallback=true;helped=true;answerArea.prepend(el('p',{class:'activity-context',lang:'zh-Hans'},a.audio.text));audioStatus.textContent='Это вариант на чтение. Балл по слуху не начисляется.';updateSubmit();},'ghost');tools.append(play,slower,readInstead,audioStatus);outer.append(tools);}
+  if(a.audio){audioStatus.textContent='Синтетический учебный голос. Сначала прослушай; текст можно открыть как помощь.';const play=button('▶ Слушать',()=>{if(submitted)return;audioStatus.textContent='Воспроизведение…';const ok=speakText(a.audio.text,()=>{listened=true;play.disabled=false;audioStatus.textContent='Прослушано. Можно ответить или послушать ещё раз.';updateSubmit();},()=>{play.disabled=false;audioStatus.textContent='Аудио недоступно. Используй вариант на чтение — он не даёт результат по слуху.';});if(ok){plays++;}else play.disabled=false;});const slower=button('Медленнее',()=>{helped=true;const ok=speakText(a.audio.text,()=>{listened=true;audioStatus.textContent='Прослушано медленнее · попытка с помощью';updateSubmit();},()=>{audioStatus.textContent='Голос недоступен. Можно перейти к чтению.';},.65);if(ok)plays++;},'ghost');const readInstead=button('Читать вместо аудио',()=>{if(submitted||fallback)return;fallback=true;helped=true;answerArea.prepend(el('p',{class:'activity-context',lang:'zh-Hans'},a.audio.text));audioStatus.textContent='Это вариант на чтение. Балл по слуху не начисляется.';updateSubmit();},'ghost');tools.append(play,slower,readInstead,audioStatus);outer.append(tools);}
   let recorderCleanup=()=>{},stopRecording=()=>{};
   if(a.type==='choice'){const options=el('div',{class:'option-list',role:'group','aria-label':'Варианты ответа'});for(const opt of shuffle(a.options||[])){const b=button(opt.label,()=>{if(submitted)return;response=opt.id;for(const child of options.children)child.setAttribute('aria-pressed',String(child===b));updateSubmit();},'',{'aria-pressed':'false'});options.append(b);}answerArea.append(options);}
   if(a.type==='tiles'){const selection=el('div',{class:'tile-answer','aria-label':'Собранный ответ','aria-live':'polite'});const pool=el('div',{class:'tile-pool','aria-label':'Слова для сборки'});const tokens=shuffle(a.tokens||[]);const render=()=>{selection.replaceChildren(...response.map((id,i)=>button((a.tokens.find(t=>t.id===id)||{}).label||id,()=>{if(submitted)return;response.splice(i,1);render();},'',{'aria-label':`Убрать ${(a.tokens.find(t=>t.id===id)||{}).label}`})));pool.replaceChildren(...tokens.map(t=>{const b=button(t.label,()=>{if(submitted)return;response.push(t.id);render();});b.disabled=submitted||response.includes(t.id);return b;}));updateSubmit();};render();answerArea.append(selection,pool,button('Очистить',()=>{if(!submitted){response=[];render();}},'ghost'));}
